@@ -165,6 +165,107 @@ p {
 }
 
 /* =========================
+   HERO-SECTION
+========================= */
+
+#hero{
+  padding-top:120px;
+  background-image: url(../asset/WeeklyTechnicalChallenges/background.png);
+  height: 100vh;
+
+}
+
+
+button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(50,215,75,.08); 
+  border: 1px solid rgb(97, 94, 94);
+  border-radius: 25px;
+  width: 180px;
+  height: 40px;
+}
+
+.weekly-button{
+  margin-left: 30px;
+  color: #45F06B;
+}
+
+.hero_text{
+  font-size: 60px;
+  font-weight: 700;
+  margin-left: 30px;
+}
+
+.slogan{
+  color: rgb(97, 94, 94);
+  margin-left: 30px;
+  margin-top: 10px;
+}
+
+.info_card{
+  display: flex;
+  margin-top: 20px;
+}
+
+.solutions{
+  display: flex;
+  flex-direction: row;
+}
+
+.trophy{
+  display: flex;
+  font-size: 30px;
+  margin-top: 3px;
+  margin-left: 30px;
+}
+
+.solutions_info{
+  display: flex;
+  margin-left: 10px;
+  font-size: 12px;
+  font-family: sans-serif;
+}
+
+.date{
+  display: flex;
+  flex-direction: row;
+}
+
+.calender{
+  display: flex;
+  font-size: 30px;
+  margin-top: 3px;
+  margin-left: 30px;
+}
+
+.date_info{
+  display: flex;
+  margin-left: 10px;
+  font-size: 12px;
+  font-family: sans-serif;
+}
+
+.leaderboard{
+  display: flex;
+  flex-direction: row;
+}
+
+.ranking{
+  display: flex;
+  font-size: 30px;
+  margin-top: 3px;
+  margin-left: 30px;
+}
+
+.leaderboard_info{
+  display: flex;
+  margin-left: 10px;
+  font-size: 12px;
+  font-family: sans-serif;
+}
+/* =========================
    RESPONSIVE
 ========================= */
 
