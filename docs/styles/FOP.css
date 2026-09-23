@@ -386,7 +386,7 @@ details[open] summary::after {
     top: 0;
     left: 0;
     right: 0;
-    background: rgba(11, 11, 11, 0.95);
+    background:#000000;
     backdrop-filter: blur(10px);
     padding: 1rem 2rem;
     z-index: 1000;
@@ -395,7 +395,7 @@ details[open] summary::after {
 }
 
 .navbar.scrolled {
-    background: rgba(11, 11, 11, 0.98);
+    background:#000000;
     box-shadow: 0 4px 16px rgba(192, 132, 252, 0.2); /* Purple glow */
 }
 
