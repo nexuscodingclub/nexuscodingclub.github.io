@@ -1,0 +1,1332 @@
+/* =========================================
+   FOP.CSS
+   Tailwind handles the main architecture.
+   This file contains only custom effects.
+========================================= */
+
+
+/* ================================
+   GLOBAL
+================================ */
+
+html {
+  scroll-behavior: smooth;
+}
+
+a:focus-visible,
+summary:focus-visible {
+  outline: 3px solid #63d0e8;
+  outline-offset: 4px;
+}
+
+
+/* ================================
+   HERO DECORATIONS
+================================ */
+
+.hero::before {
+  content: "";
+
+  position: absolute;
+  z-index: -1;
+
+  width: 640px;
+  height: 640px;
+
+  right: -224px;
+  top: -224px;
+
+  border: 1px solid #ffffff30;
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 0 64px #ffffff0d,
+    0 0 0 128px #ffffff0a;
+}
+
+.hero::after {
+  content: "";
+
+  position: absolute;
+  z-index: -1;
+
+  left: -64px;
+  bottom: -96px;
+
+  width: 400px;
+  height: 400px;
+
+  border-radius: 50%;
+
+  background: #17388d66;
+}
+
+.hero-orb {
+  display: none;
+}
+
+
+/* ================================
+   CARD ACCENT LINE
+================================ */
+
+.detail-card p::before,
+.feature-card::before {
+  content: "";
+
+  display: block;
+
+  width: 24px;
+  height: 2px;
+
+  margin-bottom: 16px;
+
+  background: #ee718c;
+}
+
+.feature-card::before {
+  margin-bottom: 40px;
+  background: #63d0e8;
+}
+
+
+/* ================================
+   SCHEDULE CARD LINE
+================================ */
+
+.schedule-card::after {
+  content: "";
+
+  position: absolute;
+
+  right: 32px;
+  bottom: 32px;
+
+  width: 40px;
+  height: 2px;
+
+  background: #2b61df;
+}
+
+
+/* ================================
+   CODE WINDOW EXTRA SHAPES
+================================ */
+
+.code-window::before,
+.code-window::after {
+  content: "";
+
+  position: absolute;
+  z-index: -1;
+
+  width: 184px;
+  height: 80px;
+
+  border-radius: 16px;
+
+  background: #ffffff14;
+
+  box-shadow: 0 16px 32px #00000033;
+}
+
+.code-window::before {
+  left: -112px;
+  top: 72px;
+  transform: rotate(-8deg);
+}
+
+.code-window::after {
+  right: -104px;
+  bottom: 32px;
+  transform: rotate(8deg);
+}
+
+
+/* ================================
+   ANIMATIONS
+================================ */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+
+  transition:
+    opacity 0.45s ease,
+    transform 0.45s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.details-grid .reveal:nth-child(2),
+.experience-grid .reveal:nth-child(2),
+.schedule-track .reveal:nth-child(2),
+.guide-grid .reveal:nth-child(2) {
+  transition-delay: 0.08s;
+}
+
+.details-grid .reveal:nth-child(3),
+.experience-grid .reveal:nth-child(3),
+.schedule-track .reveal:nth-child(3),
+.guide-grid .reveal:nth-child(3) {
+  transition-delay: 0.16s;
+}
+
+.details-grid .reveal:nth-child(4),
+.experience-grid .reveal:nth-child(4) {
+  transition-delay: 0.24s;
+}
+
+
+/* ================================
+   FLOATING ELEMENTS
+================================ */
+
+.code-window {
+  animation: drift 8s ease-in-out infinite;
+}
+
+.laptop-art {
+  animation: drift 7s ease-in-out infinite reverse;
+  filter: drop-shadow(0 20px 20px #07111d66);
+}
+
+
+/* ================================
+   CURSOR
+================================ */
+
+.cursor {
+  animation: blink 1s step-end infinite;
+}
+
+
+/* ================================
+   FAQ
+================================ */
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+summary::after {
+  content: "+";
+
+  position: absolute;
+
+  top: -4px;
+  right: 8px;
+
+  font-size: 24px;
+  font-weight: 400;
+
+  color: #2b61df;
+}
+
+details[open] summary::after {
+  content: "-";
+}
+
+
+/* ================================
+   KEYFRAMES
+================================ */
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes drift {
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+
+/* ================================
+   REDUCED MOTION
+================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .cursor,
+  .code-window,
+  .laptop-art {
+    animation: none;
+  }
+}
+
+
+/* ================================
+   MOBILE
+   Same architecture as original
+================================ */
+
+@media (max-width: 760px) {
+
+  .hero {
+    min-height: auto;
+
+    max-width: none;
+
+    margin: 0;
+
+    grid-template-columns: 1fr;
+
+    gap: 48px;
+
+    border-radius: 0;
+
+    padding: 80px 24px 64px;
+  }
+
+  .hero-meta {
+    position: static;
+
+    margin-top: 40px;
+
+    font-size: 11px;
+  }
+
+  .code-window {
+    justify-self: stretch;
+  }
+
+  .section {
+    padding: 80px 24px;
+  }
+
+  .details-grid,
+  .experience-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .schedule-section,
+  .registration-section {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .schedule-track,
+  .registration-steps,
+  .guide-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .schedule-card,
+  .step {
+    min-height: 176px;
+  }
+
+  .attendance-section {
+    display: block;
+  }
+
+  .attendance-section .section-heading {
+    margin-bottom: 48px;
+  }
+
+  .audience-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .laptop-panel {
+    display: block;
+    padding: 40px 32px;
+  }
+
+  .laptop-art {
+    margin: 40px auto 0;
+  }
+
+  .cta-section {
+    max-width: none;
+
+    margin: 0;
+
+    border-radius: 0;
+
+    padding: 80px 24px;
+  }
+}
+
+
+/* ================================
+   SMALL MOBILE
+================================ */
+
+@media (max-width: 400px) {
+
+  .details-grid,
+  .experience-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-actions .button {
+    width: 100%;
+  }
+}
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(11, 11, 11, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 1rem 2rem;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(192, 132, 252, 0.2); /* Purple glow */
+    transition: var(--transition);
+}
+
+.navbar.scrolled {
+    background: rgba(11, 11, 11, 0.98);
+    box-shadow: 0 4px 16px rgba(192, 132, 252, 0.2); /* Purple glow */
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-white);
+}
+
+.nav-cta-btn {
+    background: var(--primary-green);
+    color: var(--text-white);
+    border: 2px solid var(--glow-border);
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 0.95rem;
+    box-shadow: 0 0 15px rgba(192, 132, 252, 0.3); /* Purple glow */
+}
+
+.nav-cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 25px rgba(192, 132, 252, 0.5); /* Purple glow */
+    background: var(--dark-green);
+}
+
+/* =========================================================
+   FOP — FINAL RESPONSIVE SYSTEM
+   Keeps the existing HTML/content/architecture unchanged.
+   ========================================================= */
+
+/* ---------- Global safety ---------- */
+html {
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+h1,
+h2,
+h3,
+p,
+a,
+summary,
+code,
+pre {
+  overflow-wrap: break-word;
+}
+
+main {
+  width: 100%;
+}
+
+/* ---------- Fixed navbar: always BLACK ---------- */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  min-height: 64px;
+  background: #0b0b0b !important;
+  background-color: #0b0b0b !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 1000;
+}
+
+.navbar.scrolled {
+  background: #0b0b0b !important;
+  background-color: #0b0b0b !important;
+}
+
+.nav-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  min-width: 0;
+}
+
+.nav-brand {
+  min-width: 0;
+  white-space: nowrap;
+}
+
+.nav-cta-btn {
+  flex-shrink: 0;
+}
+
+/* The original page uses a fixed navbar, so this keeps content below it. */
+#navbar-placeholder + .pt-20 {
+  min-height: 80px;
+}
+
+/* =========================================================
+   DESKTOP / LARGE LAPTOP
+   ========================================================= */
+
+@media (max-width: 1280px) {
+  .hero {
+    margin-left: 24px !important;
+    margin-right: 24px !important;
+    padding: 64px !important;
+    gap: 40px !important;
+  }
+
+  .hero-content,
+  .code-window {
+    min-width: 0;
+  }
+
+  .code-window {
+    max-width: 100% !important;
+  }
+
+  .laptop-panel {
+    gap: 40px !important;
+    padding: 40px !important;
+  }
+}
+
+/* =========================================================
+   TABLET / SMALL LAPTOP
+   ========================================================= */
+
+@media (max-width: 1024px) {
+  .hero {
+    grid-template-columns: 1fr !important;
+    min-height: auto !important;
+    margin: 0 20px 48px !important;
+    padding: 56px 48px 72px !important;
+    gap: 40px !important;
+  }
+
+  .hero-content {
+    max-width: 760px;
+  }
+
+  .code-window {
+    width: 100% !important;
+    max-width: 620px !important;
+    justify-self: start !important;
+  }
+
+  .details-grid,
+  .experience-grid,
+  .guide-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .schedule-track,
+  .registration-steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .schedule-card:last-child,
+  .guide-card:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .attendance-section {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+  }
+
+  .audience-layout {
+    grid-template-columns: 1fr !important;
+  }
+
+  .laptop-panel {
+    gap: 32px !important;
+    padding: 40px !important;
+  }
+
+  .laptop-art {
+    flex-shrink: 0;
+  }
+
+  .faq-section,
+  .registration-section,
+  .schedule-section {
+    padding-top: 80px !important;
+    padding-bottom: 80px !important;
+  }
+}
+
+/* =========================================================
+   TABLET / PORTRAIT
+   ========================================================= */
+
+@media (max-width: 768px) {
+  /* ---------- Hero ---------- */
+  .hero {
+    grid-template-columns: 1fr !important;
+    min-height: auto !important;
+    margin: 0 16px 40px !important;
+    padding: 48px 32px 64px !important;
+    gap: 32px !important;
+    border-radius: 16px !important;
+  }
+
+  #hero-title {
+    font-size: clamp(40px, 9vw, 64px) !important;
+    line-height: 0.96 !important;
+    letter-spacing: -0.065em !important;
+  }
+
+  .hero-content > p.text-xl {
+    font-size: 18px !important;
+    line-height: 1.55 !important;
+  }
+
+  .hero-content .mt-8 {
+    width: 100%;
+    gap: 12px !important;
+  }
+
+  .hero-content .mt-8 > a {
+    flex: 1 1 200px;
+    min-width: 0;
+  }
+
+  .code-window {
+    width: 100% !important;
+    max-width: 100% !important;
+    justify-self: stretch !important;
+  }
+
+  .code-window pre {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    font-size: 12px !important;
+    line-height: 1.7 !important;
+  }
+
+  /* ---------- Sections ---------- */
+  .schedule-section,
+  .registration-section {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
+
+  .section-heading {
+    width: 100%;
+    max-width: 100% !important;
+    margin-bottom: 32px !important;
+  }
+
+  .section-heading h2,
+  #schedule-title,
+  #experience-title,
+  #laptop-title,
+  #register-title,
+  #guides-title,
+  #faq-title {
+    font-size: clamp(32px, 7vw, 48px) !important;
+    line-height: 1 !important;
+  }
+
+  /* ---------- All card grids ---------- */
+  .details-grid,
+  .experience-grid,
+  .guide-grid,
+  .schedule-track,
+  .registration-steps {
+    grid-template-columns: 1fr !important;
+  }
+
+  .schedule-card:last-child,
+  .guide-card:last-child {
+    grid-column: auto !important;
+  }
+
+  .detail-card,
+  .feature-card,
+  .guide-card,
+  .schedule-card,
+  .step {
+    width: 100%;
+    min-width: 0;
+    min-height: auto !important;
+  }
+
+  .schedule-card,
+  .step,
+  .guide-card,
+  .detail-card,
+  .feature-card {
+    padding: 24px !important;
+  }
+
+  /* ---------- Attendance ---------- */
+  .attendance-section {
+    display: block !important;
+    padding-top: 64px !important;
+    padding-bottom: 64px !important;
+  }
+
+  .audience-layout {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* ---------- Laptop ---------- */
+  .laptop-section {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  .laptop-panel {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 28px !important;
+    padding: 32px 24px !important;
+  }
+
+  .laptop-panel > div:first-child {
+    width: 100%;
+  }
+
+  .laptop-art {
+    align-self: center;
+    margin: 8px auto 0 !important;
+    transform: none !important;
+  }
+
+  /* ---------- FAQ ---------- */
+  .faq-section {
+    padding: 64px 24px 80px !important;
+  }
+
+  .faq-section details summary {
+    padding-right: 40px !important;
+    line-height: 1.5 !important;
+  }
+
+  .faq-section details p {
+    line-height: 1.7 !important;
+  }
+
+  /* ---------- CTA ---------- */
+  .cta-section {
+    width: calc(100% - 32px) !important;
+    margin-left: 16px !important;
+    margin-right: 16px !important;
+    padding: 64px 24px !important;
+    border-radius: 16px !important;
+  }
+
+  #cta-title {
+    font-size: clamp(36px, 9vw, 56px) !important;
+    line-height: 0.98 !important;
+  }
+
+  .cta-section .button {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  /* ---------- Navbar ---------- */
+  .navbar {
+    padding: 10px 14px !important;
+  }
+
+  .nav-container {
+    gap: 10px;
+  }
+
+  .nav-brand {
+    font-size: 1rem;
+  }
+
+  .nav-cta-btn {
+    min-height: 44px;
+    padding: 0.6rem 0.85rem !important;
+    font-size: 0.75rem;
+  }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+  .hero {
+    margin: 0 10px 32px !important;
+    padding: 40px 20px 56px !important;
+    gap: 28px !important;
+  }
+
+  #hero-title {
+    font-size: clamp(36px, 11vw, 54px) !important;
+  }
+
+  .hero-content > p.text-xl {
+    font-size: 17px !important;
+  }
+
+  .hero-content .mt-8 {
+    flex-direction: column !important;
+  }
+
+  .hero-content .mt-8 > a {
+    width: 100% !important;
+    flex: none !important;
+  }
+
+  .code-window pre {
+    padding: 16px !important;
+    font-size: 11px !important;
+    line-height: 1.65 !important;
+  }
+
+  .window-bar {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  .schedule-section,
+  .registration-section,
+  .faq-section {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  .section-heading h2,
+  #schedule-title,
+  #experience-title,
+  #laptop-title,
+  #register-title,
+  #guides-title,
+  #faq-title {
+    font-size: clamp(30px, 9.5vw, 42px) !important;
+  }
+
+  .detail-card,
+  .feature-card,
+  .guide-card,
+  .schedule-card,
+  .step {
+    padding: 20px !important;
+  }
+
+  .laptop-panel {
+    padding: 28px 20px !important;
+  }
+
+  .laptop-art {
+    transform: scale(0.9) !important;
+    transform-origin: center;
+    margin-top: 0 !important;
+    margin-bottom: -8px !important;
+  }
+
+  .cta-section {
+    width: calc(100% - 20px) !important;
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+    padding: 52px 18px !important;
+  }
+
+  /* Black navbar stays black on every mobile size. */
+  .navbar,
+  .navbar.scrolled {
+    background: #0b0b0b !important;
+    background-color: #0b0b0b !important;
+  }
+}
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 480px) {
+  #navbar-placeholder + .pt-20 {
+    min-height: 68px;
+  }
+
+  .navbar {
+    padding: 8px 10px !important;
+  }
+
+  .nav-brand {
+    font-size: 0.88rem;
+  }
+
+  .nav-cta-btn {
+    min-height: 42px;
+    padding: 0.5rem 0.7rem !important;
+    font-size: 0.68rem;
+  }
+
+  .hero {
+    margin: 0 8px 24px !important;
+    padding: 32px 18px 48px !important;
+    border-radius: 14px !important;
+  }
+
+  #hero-title {
+    font-size: clamp(34px, 12vw, 48px) !important;
+  }
+
+  .hero-content > p.text-xl {
+    font-size: 16px !important;
+    line-height: 1.5 !important;
+  }
+
+  .hero-content > p.max-w-\[488px\] {
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+  }
+
+  .code-window pre {
+    padding: 13px !important;
+    font-size: 10px !important;
+  }
+
+  .section-heading h2,
+  #schedule-title,
+  #experience-title,
+  #laptop-title,
+  #register-title,
+  #guides-title,
+  #faq-title {
+    font-size: clamp(28px, 10vw, 38px) !important;
+  }
+
+  .detail-card,
+  .feature-card,
+  .guide-card,
+  .schedule-card,
+  .step {
+    padding: 18px !important;
+  }
+
+  .laptop-panel {
+    padding: 24px 18px !important;
+  }
+
+  .laptop-art {
+    transform: scale(0.82) !important;
+    margin-top: -6px !important;
+    margin-bottom: -18px !important;
+  }
+
+  .cta-section {
+    padding: 48px 16px !important;
+  }
+
+  #cta-title {
+    font-size: clamp(32px, 11vw, 48px) !important;
+  }
+}
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 360px) {
+  .nav-brand {
+    font-size: 0.78rem;
+  }
+
+  .hero {
+    padding: 28px 14px 44px !important;
+  }
+
+  #hero-title {
+    font-size: 32px !important;
+  }
+
+  .section-heading h2,
+  #schedule-title,
+  #experience-title,
+  #laptop-title,
+  #register-title,
+  #guides-title,
+  #faq-title {
+    font-size: 28px !important;
+  }
+
+  .laptop-art {
+    transform: scale(0.74) !important;
+    margin-top: -14px !important;
+    margin-bottom: -26px !important;
+  }
+
+  .code-window pre {
+    font-size: 9px !important;
+  }
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* =========================================================
+   MOBILE HAMBURGER / DROPDOWN
+   ========================================================= */
+
+.nav-mobile-toggle,
+.nav-mobile-menu {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .nav-mobile-toggle {
+    display: flex;
+    width: 44px;
+    height: 44px;
+    flex: 0 0 44px;
+    margin-left: auto;
+    padding: 0;
+    border: 1px solid rgba(255,255,255,0.16);
+    border-radius: 10px;
+    background: #0b0b0b;
+    color: #fff;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    z-index: 1002;
+  }
+
+  .nav-mobile-toggle span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    border-radius: 999px;
+    background: #ffffff;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .navbar.menu-open .nav-mobile-toggle span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .navbar.menu-open .nav-mobile-toggle span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .navbar.menu-open .nav-mobile-toggle span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .nav-mobile-menu {
+    position: absolute;
+    top: 100%;
+    left: 10px;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px;
+    border: 1px solid rgba(192,132,252,0.22);
+    border-radius: 14px;
+    background: #0b0b0b;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.55);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-8px);
+    transition:
+      opacity 0.2s ease,
+      transform 0.2s ease,
+      visibility 0.2s ease;
+    z-index: 1001;
+  }
+
+  .navbar.menu-open .nav-mobile-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .nav-mobile-item {
+    width: 100%;
+  }
+
+  .nav-mobile-item a,
+  .nav-mobile-item button {
+    display: flex;
+    width: 100%;
+    min-height: 46px;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 14px;
+    border-radius: 10px;
+    text-decoration: none;
+  }
+
+  .nav-mobile-item a:hover,
+  .nav-mobile-item button:hover {
+    background: rgba(255,255,255,0.08);
+  }
+
+  /* Hide the original desktop navigation on phones.
+     The JS-created menu contains the same elements. */
+  .nav-container > *:not(.nav-brand):not(.nav-mobile-toggle) {
+    display: none !important;
+  }
+}
+
+@media (max-width: 400px) {
+  .nav-mobile-toggle {
+    width: 42px;
+    height: 42px;
+    flex-basis: 42px;
+  }
+
+  .nav-mobile-menu {
+    left: 8px;
+    right: 8px;
+  }
+}
+
+@media (min-width: 769px) {
+  .nav-mobile-toggle,
+  .nav-mobile-menu {
+    display: none !important;
+  }
+}
+/* =========================================================
+   MOBILE NAVBAR MENU
+========================================================= */
+
+.mobile-menu-btn {
+  display: none;
+  width: 42px;
+  height: 42px;
+  padding: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 8px;
+  background: #000000;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  flex-shrink: 0;
+  z-index: 1002;
+}
+
+.mobile-menu-btn span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #ffffff;
+  border-radius: 2px;
+  transition: all 0.25s ease;
+}
+
+/* Hamburger → X */
+
+.mobile-menu-btn.is-open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.mobile-menu-btn.is-open span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu-btn.is-open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Mobile dropdown */
+
+.mobile-nav-menu {
+  display: none;
+}
+
+@media (max-width: 768px) {
+
+  .navbar {
+    background: #000000 !important;
+    background-color: #000000 !important;
+    opacity: 1 !important;
+  }
+
+  .nav-container {
+    position: relative;
+    min-height: 52px;
+  }
+
+  /* Hide desktop navigation */
+
+  .nav-container .nav-links,
+  .nav-container .nav-menu {
+    display: none !important;
+  }
+
+  /* Show hamburger */
+
+  .mobile-menu-btn {
+    display: flex !important;
+    margin-left: auto;
+  }
+
+  /* Mobile dropdown */
+
+  .mobile-nav-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 14px;
+    gap: 4px;
+
+    background: #000000 !important;
+    border-top: 1px solid rgba(192, 132, 252, 0.2);
+    border-bottom: 1px solid rgba(192, 132, 252, 0.25);
+
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.5);
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+
+    transition:
+      opacity 0.2s ease,
+      transform 0.2s ease,
+      visibility 0.2s ease;
+
+    z-index: 1001;
+  }
+
+  .mobile-nav-menu.is-open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .mobile-nav-menu a,
+  .mobile-nav-menu button {
+    display: flex;
+    width: 100%;
+    min-height: 46px;
+
+    align-items: center;
+
+    padding: 12px 14px;
+
+    border: 0;
+    border-radius: 8px;
+
+    background: transparent;
+    color: #ffffff;
+
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+  }
+
+  .mobile-nav-menu a:hover,
+  .mobile-nav-menu button:hover {
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .mobile-nav-menu .nav-cta-btn {
+    margin-top: 6px;
+    justify-content: center;
+  }
+}
+
+/* Very small phones */
+
+@media (max-width: 400px) {
+
+  .mobile-menu-btn {
+    width: 40px;
+    height: 40px;
+  }
+
+  .mobile-nav-menu {
+    padding: 10px;
+  }
+
+  .mobile-nav-menu a,
+  .mobile-nav-menu button {
+    font-size: 13px;
+    min-height: 44px;
+  }
+}

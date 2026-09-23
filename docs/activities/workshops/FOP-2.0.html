@@ -1,0 +1,800 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="description" content="Fundamentals of C — a free beginner-friendly C programming workshop by NEXUS.">
+  <meta property="og:title" content="Fundamentals of C | NEXUS">
+  <meta property="og:description" content="A free, beginner-friendly C programming workshop at 315 IT LAB, 28–30 September 2026.">
+  <meta property="og:type" content="website">
+
+  <title>Fundamentals of C | NEXUS</title>
+<link rel="icon" href="/asset/NEXUS Icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="stylesheet" href="/styles/FOP.css">
+</head>
+
+<body class="m-0 overflow-x-hidden bg-[#010206] font-['Manrope',Arial,sans-serif] leading-[1.5] text-[#f5f7ff]">
+<div id="navbar-placeholder"></div>
+
+  <!-- Add padding to account for fixed navbar -->
+  <div class="pt-20"></div>
+  <a
+    class="fixed left-4 top-[-80px] z-20 rounded-2xl bg-[#17388d] px-4 py-2 text-white focus:top-4"
+    href="#main-content"
+  >
+    Skip to content
+  </a>
+
+  <main id="main-content">
+
+    <section
+      class="hero relative isolate mx-auto mb-16 grid min-h-[648px] max-w-[1296px] grid-cols-2 items-center gap-16 overflow-hidden rounded-2xl bg-gradient-to-br from-[#8654f5] via-[#2b61df] to-[#63d0e8] p-20 text-white"
+      id="top"
+      aria-labelledby="hero-title"
+    >
+
+      <div class="hero-orb orb-one"></div>
+      <div class="hero-orb orb-two"></div>
+
+      <div class="hero-content reveal">
+
+        <p class="mb-4 font-['DM_Mono',monospace] text-xs font-medium leading-4 tracking-[0.08em]">
+          NEXUS PRESENTS
+          <span aria-hidden="true">//</span>
+          FREE WORKSHOP
+        </p>
+
+        <h1
+          id="hero-title"
+          class="mb-6 text-[clamp(48px,6.1vw,88px)] font-extrabold leading-[0.94] tracking-[-0.075em]"
+        >
+          FUNDAMENTALS<br>
+          OF <span>PROGRAMMING 2.0</span>
+        </h1>
+
+        <p class="mb-4 text-xl font-bold leading-8">
+          Start Coding. Build the Fundamentals.
+        </p>
+
+        <p class="max-w-[488px] text-[15px] leading-6 text-[#e6edff]">
+          A hands-on introduction to C programming for students ready to turn curiosity into code.
+          Learn the building blocks in a supportive, beginner-first environment.
+        </p>
+
+        <div class="mt-8 flex flex-wrap gap-4">
+
+          <a
+            class="button button-primary inline-flex min-h-12 items-center justify-center rounded-2xl bg-white px-6 text-xs font-extrabold tracking-[0.06em] text-[#17388d] transition duration-200 hover:-translate-y-0.5 hover:bg-[#dfe8ff] hover:text-[#102968]"
+            href="#register-main"
+          >
+            REGISTER HERE
+            <span aria-hidden="true">↗</span>
+          </a>
+
+          <a
+            class="button button-ghost inline-flex min-h-12 items-center justify-center rounded-2xl border border-white/50 px-6 text-xs font-extrabold tracking-[0.06em] text-white transition duration-200 hover:-translate-y-0.5 hover:border-white hover:bg-white/10"
+            href="#schedule"
+          >
+            VIEW SCHEDULE
+            <span aria-hidden="true">↓</span>
+          </a>
+
+        </div>
+      </div>
+
+      <div
+        class="code-window reveal relative w-full max-w-[464px] justify-self-end overflow-hidden rounded-2xl border border-white/40 bg-[#f8faff] text-[#f5f7ff] shadow-[0_24px_48px_#00000066]"
+        aria-label="Decorative C code example"
+      >
+
+        <div class="window-bar flex h-12 items-center gap-2 border-b border-[#123d5c] bg-[#07111d] px-4">
+
+          <span class="h-2 w-2 rounded-full bg-[#64749b]"></span>
+          <span class="h-2 w-2 rounded-full bg-[#64749b]"></span>
+          <span class="h-2 w-2 rounded-full bg-[#64749b]"></span>
+
+          <code class="ml-2 font-['DM_Mono',monospace] text-xs text-[#9a9a9a]">
+            fundamentals.c
+          </code>
+
+        </div>
+
+        <pre class="m-0 p-6 font-['DM_Mono',monospace] text-sm leading-6 text-[#243252]"><span class="text-[#7654df]">#include</span> <span class="text-[#168bb0]">&lt;stdio.h&gt;</span>
+
+<span class="text-[#7654df]">int</span> <span class="text-[#cf5a78]">main</span>() {
+  <span class="text-[#cf5a78]">printf</span>(<span class="text-[#168bb0]">"Hello, Coders"</span>);
+  <span class="text-[#7654df]">return</span> <span class="text-[#a97812]">0</span>;
+}</pre>
+
+        <div class="cursor-line px-6 pb-6 font-['DM_Mono',monospace] text-xs text-[#2b61df]">
+          <span>&gt;</span> begin your journey
+          <span class="cursor ml-1 inline-block h-4 w-2 align-[-3px] bg-[#2b61df]" aria-hidden="true"></span>
+        </div>
+
+      </div>
+
+      <div
+        class="hero-meta absolute bottom-10 left-20 flex items-center gap-4 font-['DM_Mono',monospace] text-xs text-[#e6edff]"
+        aria-label="Workshop at a glance"
+      >
+        <span>
+          <b class="font-medium text-white">29 — 30
+          SEPT & 1 OCT 2026
+        </span>
+
+        <i class="h-2 w-2 rounded-full bg-[#63d0e8]"></i>
+
+        <span>
+          <b class="font-medium text-white">10 AM — 4 PM</b>
+          315 IT LAB
+        </span>
+      </div>
+
+    </section>
+
+
+    <section
+      class="section mx-auto max-w-[1360px] px-4 py-24"
+      id="details"
+      aria-labelledby="details-title"
+    >
+
+      <div class="section-heading reveal mb-12 max-w-[640px]">
+
+        <p class="eyebrow mb-4 font-['DM_Mono',monospace] text-xs font-medium leading-4 tracking-[0.08em] text-[#63d0e8]">
+          AT A GLANCE
+        </p>
+
+        <h2
+          id="details-title"
+          class="text-[clamp(32px,4.2vw,56px)] font-extrabold leading-none tracking-[-0.065em]"
+        >
+          WORKSHOP <span class="text-[#2b61df]">DETAILS</span>
+        </h2>
+
+      </div>
+
+      <div class="details-grid grid grid-cols-4 gap-4">
+
+        <article
+          class="detail-card reveal min-h-[216px] rounded-2xl border border-[#2853a8] bg-[radial-gradient(circle_at_100%_0%,#2b61df55_0,transparent_48%),linear-gradient(135deg,#12254c_0%,#07111d_72%)] p-6 transition duration-200 hover:-translate-y-1 hover:border-[#63d0e8] hover:shadow-[0_18px_36px_#00000066]"
+        >
+          <span class="card-icon hidden">◷</span>
+
+          <p class="mb-8 font-['DM_Mono',monospace] text-xs font-medium tracking-[0.1em] text-[#63d0e8]">
+            DATE
+          </p>
+
+          <h3 class="text-lg leading-6">
+            29, 30 September & <br>
+            1 October 2026
+          </h3>
+        </article>
+
+        <article
+          class="detail-card reveal min-h-[216px] rounded-2xl border border-[#2853a8] bg-[radial-gradient(circle_at_100%_0%,#2b61df55_0,transparent_48%),linear-gradient(135deg,#12254c_0%,#07111d_72%)] p-6 transition duration-200 hover:-translate-y-1 hover:border-[#63d0e8] hover:shadow-[0_18px_36px_#00000066]"
+        >
+          <span class="card-icon hidden">◴</span>
+
+          <p class="mb-8 font-['DM_Mono',monospace] text-xs font-medium tracking-[0.1em] text-[#63d0e8]">
+            TIME
+          </p>
+
+          <h3 class="text-lg leading-6">
+            10:00 AM –<br>
+            4:00 PM
+          </h3>
+        </article>
+
+        <article
+          class="detail-card reveal min-h-[216px] rounded-2xl border border-[#2853a8] bg-[radial-gradient(circle_at_100%_0%,#2b61df55_0,transparent_48%),linear-gradient(135deg,#12254c_0%,#07111d_72%)] p-6 transition duration-200 hover:-translate-y-1 hover:border-[#63d0e8] hover:shadow-[0_18px_36px_#00000066]"
+        >
+          <span class="card-icon hidden">⌖</span>
+
+          <p class="mb-8 font-['DM_Mono',monospace] text-xs font-medium tracking-[0.1em] text-[#63d0e8]">
+            VENUE
+          </p>
+
+          <h3 class="text-lg leading-6">
+            315 IT LAB
+          </h3>
+        </article>
+
+        <article
+          class="detail-card accent-card reveal min-h-[216px] rounded-2xl border border-[#7e7df2] bg-[radial-gradient(circle_at_100%_0%,#8654f570_0,transparent_52%),linear-gradient(135deg,#202151_0%,#0b1630_72%)] p-6"
+        >
+          <span class="card-icon hidden">✦</span>
+
+          <p class="mb-8 font-['DM_Mono',monospace] text-xs font-medium tracking-[0.1em] text-[#63d0e8]">
+            ENTRY
+          </p>
+
+          <h3 class="text-lg leading-6">
+            FREE
+          </h3>
+        </article>
+
+      </div>
+    </section>
+
+
+    <section
+      class="schedule-section max-w-none bg-[radial-gradient(circle_at_88%_16%,#2b61df24_0,transparent_32%),radial-gradient(circle_at_12%_92%,#8654f51c_0,transparent_30%),linear-gradient(135deg,#07111d_0%,#0b1626_100%)] px-[max(16px,calc((100%_-_1296px)/2))] py-24 text-[#f5f7ff]"
+      id="schedule"
+      aria-labelledby="schedule-title"
+    >
+
+      <div class="section-heading reveal mb-12 max-w-[640px]">
+
+        <p class="eyebrow mb-4 font-['DM_Mono',monospace] text-xs font-medium tracking-[0.08em] text-[#63d0e8]">
+          THREE DAYS, ONE STRONG START
+        </p>
+
+        <h2
+          id="schedule-title"
+          class="text-[clamp(32px,4.2vw,56px)] font-extrabold leading-none tracking-[-0.065em]"
+        >
+          WORKSHOP <span class="text-[#63d0e8]">SCHEDULE</span>
+        </h2>
+
+      </div>
+
+      <div class="schedule-track grid grid-cols-3 gap-4">
+
+        <article
+          class="schedule-card reveal relative min-h-[248px] overflow-hidden rounded-2xl border border-[#2853a8] bg-[radial-gradient(circle_at_100%_0%,#2b61df50_0,transparent_50%),linear-gradient(135deg,#12254c_0%,#07111d_72%)] p-8 transition duration-200 hover:-translate-y-1 hover:border-[#63d0e8] hover:bg-[radial-gradient(circle_at_100%_0%,#8654f570_0,transparent_54%),linear-gradient(135deg,#17388d_0%,#0b1626_72%)] hover:shadow-[0_16px_32px_#00000040]"
+        >
+          <span class="day-number mb-10 block font-['DM_Mono',monospace] text-xs font-medium text-[#63d0e8]">
+            01
+          </span>
+
+          <p class="mb-4 font-['DM_Mono',monospace] text-xs font-medium tracking-[0.1em] text-[#ee718c]">
+            DAY 1
+          </p>
+
+          <h3 class="text-xl leading-6">
+            Programming<br>
+            Fundamentals
+          </h3>
+
+          <span class="arrow hidden" aria-hidden="true">→</span>
+        </article>
+
+        <article
+          class="schedule-card reveal relative min-h-[248px] overflow-hidden rounded-2xl border border-[#2853a8] bg-[radial-gradient(circle_at_100%_0%,#2b61df50_0,transparent_50%),linear-gradient(135deg,#12254c_0%,#07111d_72%)] p-8 transition duration-200 hover:-translate-y-1 hover:border-[#63d0e8] hover:bg-[radial-gradient(circle_at_100%_0%,#8654f570_0,transparent_54%),linear-gradient(135deg,#17388d_0%,#0b1626_72%)] hover:shadow-[0_16px_32px_#00000040]"
+        >
+          <span class="day-number mb-10 block font-['DM_Mono',monospace] text-xs font-medium text-[#63d0e8]">
+            02
+          </span>
+
+          <p class="mb-4 font-['DM_Mono',monospace] text-xs font-medium tracking-[0.1em] text-[#ee718c]">
+            DAY 2
+          </p>
+
+          <h3 class="text-xl leading-6">
+            Logic &amp;<br>
+            Control Flow
+          </h3>
+
+          <span class="arrow hidden" aria-hidden="true">→</span>
+        </article>
+
+        <article
+          class="schedule-card reveal relative min-h-[248px] overflow-hidden rounded-2xl border border-[#2853a8] bg-[radial-gradient(circle_at_100%_0%,#2b61df50_0,transparent_50%),linear-gradient(135deg,#12254c_0%,#07111d_72%)] p-8 transition duration-200 hover:-translate-y-1 hover:border-[#63d0e8] hover:bg-[radial-gradient(circle_at_100%_0%,#8654f570_0,transparent_54%),linear-gradient(135deg,#17388d_0%,#0b1626_72%)] hover:shadow-[0_16px_32px_#00000040]"
+        >
+          <span class="day-number mb-10 block font-['DM_Mono',monospace] text-xs font-medium text-[#63d0e8]">
+            03
+          </span>
+
+          <p class="mb-4 font-['DM_Mono',monospace] text-xs font-medium tracking-[0.1em] text-[#ee718c]">
+            DAY 3
+          </p>
+
+          <h3 class="text-xl leading-6">
+            Functions &amp;<br>
+            Mini Project
+          </h3>
+        </article>
+
+      </div>
+    </section>
+
+
+    <section
+      class="attendance-section mx-auto grid max-w-[1360px] grid-cols-2 items-end gap-16 px-4 py-24"
+      aria-labelledby="attend-title"
+    >
+
+      <div class="section-heading reveal mb-0 max-w-[640px]">
+
+        <p class="eyebrow mb-4 font-['DM_Mono',monospace] text-xs font-medium tracking-[0.08em] text-[#63d0e8]">
+          YOU BELONG HERE
+        </p>
+
+        <h2
+          id="attend-title"
+          class="text-[clamp(32px,4.2vw,56px)] font-extrabold leading-none tracking-[-0.065em]"
+        >
+          WHO CAN <span class="text-[#2b61df]">ATTEND?</span>
+        </h2>
+
+      </div>
+
+      <div class="audience-layout grid grid-cols-[1.4fr_1fr] gap-6">
+
+        <div class="audience-list border-t border-[#123d5c]">
+
+          <div class="flex min-h-[72px] items-center gap-6 border-b border-[#123d5c]">
+            <span class="font-['DM_Mono',monospace] text-xs font-medium text-[#2b61df]">01</span>
+            <h3 class="m-0 text-base">1st Year Students</h3>
+          </div>
+
+          <div class="flex min-h-[72px] items-center gap-6 border-b border-[#123d5c]">
+            <span class="font-['DM_Mono',monospace] text-xs font-medium text-[#2b61df]">02</span>
+            <h3 class="m-0 text-base">Complete Beginners</h3>
+          </div>
+
+          <div class="flex min-h-[72px] items-center gap-6 border-b border-[#123d5c]">
+            <span class="font-['DM_Mono',monospace] text-xs font-medium text-[#2b61df]">03</span>
+            <h3 class="m-0 text-base">Exclusively for 1st Year Students</h3>
+          </div>
+
+        </div>
+
+        <aside class="no-prior reveal rounded-2xl bg-[#2b61df] p-8 text-white">
+
+          <span
+            class="font-['DM_Mono',monospace] text-2xl font-medium text-[#63d0e8]"
+            aria-hidden="true"
+          >
+            &lt;/&gt;
+          </span>
+
+          <h3 class="my-8 mb-2 text-xl leading-6">
+            No prior programming<br>
+            knowledge required.
+          </h3>
+
+          <p class="m-0 text-sm text-[#e6edff]">
+            Just bring your interest in learning.
+          </p>
+
+        </aside>
+
+      </div>
+    </section>
+
+
+    <section
+      class="section mx-auto max-w-[1360px] px-4 py-24"
+      aria-labelledby="experience-title"
+    >
+
+      <div class="section-heading reveal mb-12 max-w-[640px]">
+
+        <p class="eyebrow mb-4 font-['DM_Mono',monospace] text-xs font-medium tracking-[0.08em] text-[#63d0e8]">
+          LEARN BY DOING
+        </p>
+
+        <h2
+          id="experience-title"
+          class="text-[clamp(32px,4.2vw,56px)] font-extrabold leading-none tracking-[-0.065em]"
+        >
+          LEARNING <span class="text-[#2b61df]">EXPERIENCE</span>
+        </h2>
+
+      </div>
+
+      <div class="experience-grid grid grid-cols-4 gap-4">
+
+        <article
+          class="feature-card reveal min-h-[192px] rounded-2xl border border-[#2853a8] bg-[radial-gradient(circle_at_100%_0%,#2b61df55_0,transparent_48%),linear-gradient(135deg,#12254c_0%,#07111d_72%)] p-6 transition duration-200 hover:-translate-y-1 hover:border-[#63d0e8] hover:shadow-[0_18px_36px_#00000066]"
+        >
+          <span class="hidden">✦</span>
+          <h3 class="text-base leading-6">100% Beginner Friendly</h3>
+        </article>
+
+        <article
+          class="feature-card reveal min-h-[192px] rounded-2xl border border-[#2853a8] bg-[radial-gradient(circle_at_100%_0%,#2b61df55_0,transparent_48%),linear-gradient(135deg,#12254c_0%,#07111d_72%)] p-6 transition duration-200 hover:-translate-y-1 hover:border-[#63d0e8] hover:shadow-[0_18px_36px_#00000066]"
+        >
+          <span class="hidden">⌨</span>
+          <h3 class="text-base leading-6">Hands-On Experience</h3>
+        </article>
+
+        <article
+          class="feature-card reveal min-h-[192px] rounded-2xl border border-[#2853a8] bg-[radial-gradient(circle_at_100%_0%,#2b61df55_0,transparent_48%),linear-gradient(135deg,#12254c_0%,#07111d_72%)] p-6 transition duration-200 hover:-translate-y-1 hover:border-[#63d0e8] hover:shadow-[0_18px_36px_#00000066]"
+        >
+          <span class="hidden">◎</span>
+          <h3 class="text-base leading-6">Practice Along With The Mentor</h3>
+        </article>
+
+        <article
+          class="feature-card reveal min-h-[192px] rounded-2xl border border-[#2853a8] bg-[radial-gradient(circle_at_100%_0%,#2b61df55_0,transparent_48%),linear-gradient(135deg,#12254c_0%,#07111d_72%)] p-6 transition duration-200 hover:-translate-y-1 hover:border-[#63d0e8] hover:shadow-[0_18px_36px_#00000066]"
+        >
+          <span class="hidden">⚡</span>
+          <h3 class="text-base leading-6">Small Coding Exercises &amp; Challenges</h3>
+        </article>
+
+      </div>
+    </section>
+
+
+    <section
+      class="laptop-section mx-auto max-w-[1360px] px-4 pt-0"
+      aria-labelledby="laptop-title"
+    >
+
+      <div
+        class="laptop-panel flex items-center justify-between gap-16 rounded-2xl bg-gradient-to-br from-[#17388d] via-[#2b61df] to-[#8654f5] p-12 text-white"
+      >
+
+        <div class="reveal">
+
+          <p class="eyebrow mb-4 font-['DM_Mono',monospace] text-xs font-medium tracking-[0.08em] text-white">
+            COME PREPARED
+          </p>
+
+          <h2
+            id="laptop-title"
+            class="text-[clamp(32px,4.2vw,56px)] font-extrabold leading-none tracking-[-0.065em]"
+          >
+            LAPTOP <span class="text-[#63d0e8]">RECOMMENDED</span>
+          </h2>
+
+          <h3 class="my-6 mb-1 text-lg leading-6">
+            Bring Your Laptop — Highly Recommended
+          </h3>
+
+          <p class="m-0 text-sm text-[#e6edff]">
+            If you don't have a laptop, computers will be provided in the lab.
+          </p>
+
+        </div>
+
+        <div class="laptop-art w-[240px] flex-none">
+
+          <div
+            class="laptop-screen h-36 rounded-t-2xl border-[8px] border-[#dce8ff] bg-[radial-gradient(circle_at_72%_22%,#2b61df40_0,transparent_30%),linear-gradient(135deg,#07111d_0%,#0c1a32_100%)] p-6 font-['DM_Mono',monospace] text-2xl text-[#63d0e8] shadow-[inset_0_0_0_1px_#63d0e844,0_0_20px_#63d0e833]"
+          >
+            <span>&gt;_</span>
+          </div>
+
+          <div
+            class="laptop-base ml-[-16px] h-4 w-[272px] rounded-b-2xl bg-gradient-to-r from-[#b8cbed] via-white to-[#b8cbed] shadow-[0_8px_16px_#07111d44]"
+          ></div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <section
+      class="registration-section max-w-none bg-[#07111d] px-[max(16px,calc((100%_-_1296px)/2))] py-24"
+      id="registration-guidance"
+      aria-labelledby="register-title"
+    >
+
+      <div class="section-heading reveal mb-12 max-w-[640px]">
+
+        <p class="eyebrow mb-4 font-['DM_Mono',monospace] text-xs font-medium tracking-[0.08em] text-[#63d0e8]">
+          YOUR NEXT STEP
+        </p>
+
+        <h2
+          id="register-title"
+          class="text-[clamp(32px,4.2vw,56px)] font-extrabold leading-none tracking-[-0.065em]"
+        >
+          HOW TO <span class="text-[#2b61df]">REGISTER</span>
+        </h2>
+
+      </div>
+
+      <div class="registration-steps grid grid-cols-3 gap-4">
+
+        <article
+          class="step reveal relative min-h-[208px] overflow-hidden rounded-2xl border border-[#2853a8] bg-[radial-gradient(circle_at_100%_0%,#2b61df50_0,transparent_50%),linear-gradient(135deg,#12254c_0%,#07111d_72%)] p-8 transition duration-200 hover:-translate-y-1 hover:border-[#63d0e8] hover:bg-[radial-gradient(circle_at_100%_0%,#8654f570_0,transparent_54%),linear-gradient(135deg,#17388d_0%,#0b1626_72%)] hover:shadow-[0_18px_36px_#00000066]"
+        >
+          <span class="mb-10 block font-['DM_Mono',monospace] text-xs font-medium text-[#63d0e8]">
+            01
+          </span>
+
+          <h3 class="m-0 text-xl leading-6">
+            Fill out the<br>
+            registration form
+          </h3>
+        </article>
+
+        <article
+          class="step reveal relative min-h-[208px] overflow-hidden rounded-2xl border border-[#2853a8] bg-[radial-gradient(circle_at_100%_0%,#2b61df50_0,transparent_50%),linear-gradient(135deg,#12254c_0%,#07111d_72%)] p-8 transition duration-200 hover:-translate-y-1 hover:border-[#63d0e8] hover:bg-[radial-gradient(circle_at_100%_0%,#8654f570_0,transparent_54%),linear-gradient(135deg,#17388d_0%,#0b1626_72%)] hover:shadow-[0_18px_36px_#00000066]"
+        >
+          <span class="mb-10 block font-['DM_Mono',monospace] text-xs font-medium text-[#63d0e8]">
+            02
+          </span>
+
+          <h3 class="m-0 text-xl leading-6">
+            Check your email<br>
+            for next steps
+          </h3>
+        </article>
+
+        <article
+          class="step reveal relative min-h-[208px] overflow-hidden rounded-2xl border border-[#2853a8] bg-[radial-gradient(circle_at_100%_0%,#2b61df50_0,transparent_50%),linear-gradient(135deg,#12254c_0%,#07111d_72%)] p-8 transition duration-200 hover:-translate-y-1 hover:border-[#63d0e8] hover:bg-[radial-gradient(circle_at_100%_0%,#8654f570_0,transparent_54%),linear-gradient(135deg,#17388d_0%,#0b1626_72%)] hover:shadow-[0_18px_36px_#00000066]"
+        >
+          <span class="mb-10 block font-['DM_Mono',monospace] text-xs font-medium text-[#63d0e8]">
+            03
+          </span>
+
+          <h3 class="m-0 text-xl leading-6">
+            Complete a<br>
+            simple task
+          </h3>
+        </article>
+
+      </div>
+
+      <p class="registration-note reveal mt-6 text-sm text-[#9a9a9a]">
+        Your seat is confirmed after completing the required registration process/task.
+      </p>
+
+    </section>
+
+
+    <section
+      class="guides-section mx-auto max-w-[1360px] px-4 py-24"
+      aria-labelledby="guides-title"
+    >
+
+      <div class="section-heading reveal mb-12 max-w-[640px]">
+
+        <p class="eyebrow mb-4 font-['DM_Mono',monospace] text-xs font-medium tracking-[0.08em] text-[#63d0e8]">
+          GET SET UP
+        </p>
+
+        <h2
+          id="guides-title"
+          class="text-[clamp(32px,4.2vw,56px)] font-extrabold leading-none tracking-[-0.065em]"
+        >
+          GUIDES FOR <span class="text-[#2b61df]">COMPLETING TASK</span>
+        </h2>
+
+      </div>
+
+      <div class="guide-grid grid grid-cols-3 gap-4">
+
+        <article
+          class="guide-card reveal flex min-h-[216px] flex-col rounded-2xl border border-[#2853a8] bg-[radial-gradient(circle_at_100%_0%,#2b61df55_0,transparent_48%),linear-gradient(135deg,#12254c_0%,#07111d_72%)] p-6 transition duration-200 hover:-translate-y-1 hover:border-[#63d0e8] hover:shadow-[0_18px_36px_#00000066]"
+        >
+          <span class="platform mb-6 font-['DM_Mono',monospace] text-xs text-[#63d0e8]">
+            ⌘
+          </span>
+
+          <h3 class="mb-6 text-base leading-6">
+            Laptop Users — macOS
+          </h3>
+
+          <a
+            href="https://youtu.be/lGsyqgpMAYY"
+            target="_blank"
+            class="mt-auto font-['DM_Mono',monospace] text-xs font-bold tracking-[0.08em] text-[#63d0e8] hover:text-white hover:underline hover:underline-offset-4"
+          >
+            VIEW GUIDE <span>→</span>
+          </a>
+        </article>
+
+        <article
+          class="guide-card reveal flex min-h-[216px] flex-col rounded-2xl border border-[#2853a8] bg-[radial-gradient(circle_at_100%_0%,#2b61df55_0,transparent_48%),linear-gradient(135deg,#12254c_0%,#07111d_72%)] p-6 transition duration-200 hover:-translate-y-1 hover:border-[#63d0e8] hover:shadow-[0_18px_36px_#00000066]"
+        >
+          <span class="platform mb-6 font-['DM_Mono',monospace] text-xs text-[#63d0e8]">
+            ▣
+          </span>
+
+          <h3 class="mb-6 text-base leading-6">
+            Non-Laptop Users
+          </h3>
+
+          <a
+            href="https://youtu.be/UotGg3i9C5A"
+            target="_blank"
+            class="mt-auto font-['DM_Mono',monospace] text-xs font-bold tracking-[0.08em] text-[#63d0e8] hover:text-white hover:underline hover:underline-offset-4"
+          >
+            VIEW GUIDE <span>→</span>
+          </a>
+        </article>
+
+        <article
+          class="guide-card reveal flex min-h-[216px] flex-col rounded-2xl border border-[#2853a8] bg-[radial-gradient(circle_at_100%_0%,#2b61df55_0,transparent_48%),linear-gradient(135deg,#12254c_0%,#07111d_72%)] p-6 transition duration-200 hover:-translate-y-1 hover:border-[#63d0e8] hover:shadow-[0_18px_36px_#00000066]"
+        >
+          <span class="platform mb-6 font-['DM_Mono',monospace] text-xs text-[#63d0e8]">
+            ⊞
+          </span>
+
+          <h3 class="mb-6 text-base leading-6">
+            Laptop Users — Windows
+          </h3>
+
+          <a
+            href="https://youtu.be/zuJU_14iKjs"
+            target="_blank"
+            class="mt-auto font-['DM_Mono',monospace] text-xs font-bold tracking-[0.08em] text-[#63d0e8] hover:text-white hover:underline hover:underline-offset-4"
+          >
+            VIEW GUIDE <span>→</span>
+          </a>
+        </article>
+
+      </div>
+    </section>
+
+
+    <section
+      class="faq-section mx-auto max-w-[1360px] px-4 pb-24 pt-16"
+      id="faq"
+      aria-labelledby="faq-title"
+    >
+
+      <div class="section-heading reveal mb-12 max-w-[640px]">
+
+        <p class="eyebrow mb-4 font-['DM_Mono',monospace] text-xs font-medium tracking-[0.08em] text-[#63d0e8]">
+          QUESTIONS, ANSWERED
+        </p>
+
+        <h2
+          id="faq-title"
+          class="text-[clamp(32px,4.2vw,56px)] font-extrabold leading-none tracking-[-0.065em]"
+        >
+          FREQUENTLY ASKED <span class="text-[#2b61df]">QUESTIONS</span>
+        </h2>
+
+      </div>
+
+      <div class="faq-list border-t border-[#123d5c]">
+
+        <details class="reveal border-b border-[#123d5c] py-6">
+          <summary class="relative cursor-pointer list-none pr-10 text-base font-bold hover:text-[#63d0e8]">
+            Who can attend?
+          </summary>
+          <p class="mt-4 max-w-[768px] text-sm text-[#9a9a9a]">
+            1st-year students, complete beginners, and students from all branches can attend.
+          </p>
+        </details>
+
+        <details class="reveal border-b border-[#123d5c] py-6">
+          <summary class="relative cursor-pointer list-none pr-10 text-base font-bold hover:text-[#63d0e8]">
+            Do I need prior C or programming knowledge?
+          </summary>
+          <p class="mt-4 max-w-[768px] text-sm text-[#9a9a9a]">
+            No. This workshop is designed for beginners, and prior programming knowledge is not required.
+          </p>
+        </details>
+
+        <details class="reveal border-b border-[#123d5c] py-6">
+          <summary class="relative cursor-pointer list-none pr-10 text-base font-bold hover:text-[#63d0e8]">
+            Is the workshop free?
+          </summary>
+          <p class="mt-4 max-w-[768px] text-sm text-[#9a9a9a]">
+            Yes, entry to the workshop is free.
+          </p>
+        </details>
+
+        <details class="reveal border-b border-[#123d5c] py-6">
+          <summary class="relative cursor-pointer list-none pr-10 text-base font-bold hover:text-[#63d0e8]">
+            Do I need to bring a laptop?
+          </summary>
+          <p class="mt-4 max-w-[768px] text-sm text-[#9a9a9a]">
+            A laptop is highly recommended, but it is not mandatory.
+          </p>
+        </details>
+
+        <details class="reveal border-b border-[#123d5c] py-6">
+          <summary class="relative cursor-pointer list-none pr-10 text-base font-bold hover:text-[#63d0e8]">
+            What if I don't have a laptop?
+          </summary>
+          <p class="mt-4 max-w-[768px] text-sm text-[#9a9a9a]">
+            Computers will be provided in the lab for participants who do not have a laptop.
+          </p>
+        </details>
+
+        <details class="reveal border-b border-[#123d5c] py-6">
+          <summary class="relative cursor-pointer list-none pr-10 text-base font-bold hover:text-[#63d0e8]">
+            Can students from other branches attend?
+          </summary>
+          <p class="mt-4 max-w-[768px] text-sm text-[#9a9a9a]">
+            Yes. Students from all branches are welcome.
+          </p>
+        </details>
+
+        <details class="reveal border-b border-[#123d5c] py-6">
+          <summary class="relative cursor-pointer list-none pr-10 text-base font-bold hover:text-[#63d0e8]">
+            Can 2nd, 3rd or 4th year students attend?
+          </summary>
+          <p class="mt-4 max-w-[768px] text-sm text-[#9a9a9a]">
+            No.It's only for First Years.
+          </p>
+        </details>
+
+        <details class="reveal border-b border-[#123d5c] py-6">
+          <summary class="relative cursor-pointer list-none pr-10 text-base font-bold hover:text-[#63d0e8]">
+            How do I confirm my seat?
+          </summary>
+          <p class="mt-4 max-w-[768px] text-sm text-[#9a9a9a]">
+            Your seat is confirmed after you complete the required registration process/task send through E-mail.
+          </p>
+        </details>
+
+        <details class="reveal border-b border-[#123d5c] py-6">
+          <summary class="relative cursor-pointer list-none pr-10 text-base font-bold hover:text-[#63d0e8]">
+            Are seats limited?
+          </summary>
+          <p class="mt-4 max-w-[768px] text-sm text-[#9a9a9a]">
+            Please check the registration form or event organizers for the latest availability.
+          </p>
+        </details>
+
+        <details class="reveal border-b border-[#123d5c] py-6">
+          <summary class="relative cursor-pointer list-none pr-10 text-base font-bold hover:text-[#63d0e8]">
+            Will I receive anything after completing the workshop?
+          </summary>
+          <p class="mt-4 max-w-[768px] text-sm text-[#9a9a9a]">
+            Any post-workshop details will be shared by the organizers.
+          </p>
+        </details>
+
+      </div>
+    </section>
+
+
+    <div id="register-main">
+
+      <section
+        class="cta-section reveal mx-auto mb-16 max-w-[1296px] rounded-2xl bg-gradient-to-br from-[#8654f5] via-[#2b61df] to-[#63d0e8] px-4 py-24 text-center text-white shadow-[0_24px_80px_#00000055]"
+        aria-labelledby="cta-title"
+      >
+
+        <p class="eyebrow mb-4 font-['DM_Mono',monospace] text-xs font-medium tracking-[0.08em] text-white">
+          READY TO BEGIN?
+        </p>
+
+        <h2
+          id="cta-title"
+          class="mb-6 text-[clamp(32px,4.2vw,56px)] font-extrabold leading-none tracking-[-0.065em]"
+        >
+          SECURE YOUR<br>
+          <span class="text-white">SPOT TODAY</span>
+        </h2>
+
+        <p class="mb-8 text-[#e6edff]">
+          Register by <strong>27 September 2026</strong>
+        </p>
+
+        <a
+          class="button button-primary inline-flex min-h-12 items-center justify-center rounded-2xl bg-white px-6 text-xs font-extrabold tracking-[0.06em] text-[#17388d] transition duration-200 hover:-translate-y-0.5 hover:bg-[#dfe8ff]"
+          href="#"
+        >
+          REGISTER HERE
+          <span aria-hidden="true">↗</span>
+        </a>
+
+      </section>
+
+    </div>
+
+  </main>
+<!-- Footer -->
+  <div id="footer-placeholder"></div>
+
+  <script src="/components/navbar.js"></script>
+  <script src="/components/footer.js"></script>
+  <script src="/js/FOP.js"></script>
+</body>
+</html>
