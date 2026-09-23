@@ -24,6 +24,22 @@ summary:focus-visible {
    HERO DECORATIONS
 ================================ */
 
+/* ================================
+   SCROLL ANIMATIONS
+================================ */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .hero::before {
   content: "";
 
@@ -380,57 +396,6 @@ details[open] summary::after {
     width: 100%;
   }
 }
-/* Navbar */
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background:#000000;
-    backdrop-filter: blur(10px);
-    padding: 1rem 2rem;
-    z-index: 1000;
-    border-bottom: 1px solid rgba(192, 132, 252, 0.2); /* Purple glow */
-    transition: var(--transition);
-}
-
-.navbar.scrolled {
-    background:#000000;
-    box-shadow: 0 4px 16px rgba(192, 132, 252, 0.2); /* Purple glow */
-}
-
-.nav-container {
-    max-width: 1400px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.nav-brand {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--text-white);
-}
-
-.nav-cta-btn {
-    background: var(--primary-green);
-    color: var(--text-white);
-    border: 2px solid var(--glow-border);
-    padding: 0.75rem 1.5rem;
-    border-radius: 8px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: var(--transition);
-    font-size: 0.95rem;
-    box-shadow: 0 0 15px rgba(192, 132, 252, 0.3); /* Purple glow */
-}
-
-.nav-cta-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 0 25px rgba(192, 132, 252, 0.5); /* Purple glow */
-    background: var(--dark-green);
-}
 
 /* =========================================================
    FOP — FINAL RESPONSIVE SYSTEM
@@ -468,9 +433,6 @@ a {
   -webkit-tap-highlight-color: transparent;
 }
 
-h1,
-h2,
-h3,
 p,
 a,
 summary,
@@ -483,41 +445,7 @@ main {
   width: 100%;
 }
 
-/* ---------- Fixed navbar: always BLACK ---------- */
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  min-height: 64px;
-  background: #0b0b0b !important;
-  background-color: #0b0b0b !important;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  z-index: 1000;
-}
 
-.navbar.scrolled {
-  background: #0b0b0b !important;
-  background-color: #0b0b0b !important;
-}
-
-.nav-container {
-  width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
-  min-width: 0;
-}
-
-.nav-brand {
-  min-width: 0;
-  white-space: nowrap;
-}
-
-.nav-cta-btn {
-  flex-shrink: 0;
-}
 
 /* The original page uses a fixed navbar, so this keeps content below it. */
 #navbar-placeholder + .pt-20 {
@@ -790,14 +718,7 @@ main {
     max-width: 320px;
   }
 
-  /* ---------- Navbar ---------- */
-  .navbar {
-    padding: 10px 14px !important;
-  }
 
-  .nav-container {
-    gap: 10px;
-  }
 
   .nav-brand {
     font-size: 1rem;
@@ -892,12 +813,7 @@ main {
     padding: 52px 18px !important;
   }
 
-  /* Black navbar stays black on every mobile size. */
-  .navbar,
-  .navbar.scrolled {
-    background: #0b0b0b !important;
-    background-color: #0b0b0b !important;
-  }
+
 }
 
 /* =========================================================
@@ -905,28 +821,11 @@ main {
    ========================================================= */
 
 @media (max-width: 480px) {
-  #navbar-placeholder + .pt-20 {
-    min-height: 68px;
-  }
-
-  .navbar {
-    padding: 8px 10px !important;
-  }
-
-  .nav-brand {
-    font-size: 0.88rem;
-  }
-
-  .nav-cta-btn {
-    min-height: 42px;
-    padding: 0.5rem 0.7rem !important;
-    font-size: 0.68rem;
-  }
 
   .hero {
-    margin: 0 8px 24px !important;
-    padding: 32px 18px 48px !important;
-    border-radius: 14px !important;
+    margin: 0 16px 24px !important;
+    padding: 40px 24px 48px !important;
+    border-radius: 16px !important;
   }
 
   #hero-title {
@@ -935,12 +834,12 @@ main {
 
   .hero-content > p.text-xl {
     font-size: 16px !important;
-    line-height: 1.5 !important;
+    line-height: 1.6 !important;
   }
 
   .hero-content > p.max-w-\[488px\] {
     font-size: 14px !important;
-    line-height: 1.6 !important;
+    line-height: 1.7 !important;
   }
 
   .code-window pre {
@@ -967,7 +866,7 @@ main {
   }
 
   .laptop-panel {
-    padding: 24px 18px !important;
+    padding: 32px 24px !important;
   }
 
   .laptop-art {
