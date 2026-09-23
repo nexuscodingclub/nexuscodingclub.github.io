@@ -53,7 +53,7 @@
   <main id="main-content">
 
     <section
-      class="hero relative isolate mx-auto mb-16 grid min-h-auto md:min-h-[648px] max-w-[1296px] grid-cols-1 lg:grid-cols-[1.2fr_1fr] items-center gap-8 lg:gap-16 overflow-hidden rounded-2xl bg-gradient-to-br from-[#8654f5] via-[#2b61df] to-[#63d0e8] p-6 md:p-10 lg:p-20 text-white"
+      class="hero relative isolate mx-auto mt-4 mb-16 grid min-h-auto md:min-h-[648px] max-w-[1296px] grid-cols-1 lg:grid-cols-[1.2fr_1fr] items-center gap-8 lg:gap-16 overflow-hidden rounded-2xl bg-gradient-to-br from-[#8654f5] via-[#2b61df] to-[#63d0e8] p-6 pt-12 md:p-10 lg:p-20 text-white"
       id="top"
       aria-labelledby="hero-title"
     >
@@ -71,10 +71,10 @@
 
         <h1
           id="hero-title"
-          class="mb-6 text-[clamp(40px,5.5vw,76px)] font-extrabold leading-[1.05] tracking-[-0.05em]"
+          class="mb-6 text-[clamp(32px,8vw,76px)] font-extrabold leading-[1.05] tracking-[-0.05em]"
         >
           FUNDAMENTALS<br>
-          OF <span class="whitespace-nowrap">PROGRAMMING 2.0</span>
+          OF <span class="whitespace-normal md:whitespace-nowrap">PROGRAMMING 2.0</span>
         </h1>
 
         <p class="mb-4 text-xl font-bold leading-8">
@@ -139,19 +139,18 @@
       </div>
 
       <div
-        class="hero-meta lg:absolute relative bottom-auto lg:bottom-10 left-auto lg:left-20 flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4 font-['DM_Mono',monospace] text-xs text-[#e6edff] mt-8 lg:mt-0"
+        class="hero-meta lg:absolute relative bottom-auto lg:bottom-10 left-auto lg:left-20 flex flex-col sm:flex-row items-start sm:items-center gap-4 font-['DM_Mono',monospace] text-[11px] sm:text-xs text-[#e6edff] mt-8 lg:mt-0"
         aria-label="Workshop at a glance"
       >
-        <span>
-          <b class="font-medium text-white">29 — 30
-          SEPT & 1 OCT 2026
+        <span class="flex flex-col sm:block gap-1">
+          <b class="font-medium text-white">29 — 30 SEPT &amp; 1 OCT 2026</b>
         </span>
 
-        <i class="h-2 w-2 rounded-full bg-[#63d0e8]"></i>
+        <i class="hidden sm:block h-2 w-2 rounded-full bg-[#63d0e8]"></i>
 
-        <span>
+        <span class="flex flex-col sm:block gap-1">
           <b class="font-medium text-white">10 AM — 4 PM</b>
-          315 IT LAB
+          <span>315 IT LAB</span>
         </span>
       </div>
 
@@ -282,7 +281,6 @@
             Fundamentals
           </h3>
 
-          <i class="fa-solid fa-arrow-right mt-4 block text-[#63d0e8]" aria-hidden="true"></i>
         </article>
 
         <article
@@ -300,8 +298,6 @@
             Logic &amp;<br>
             Control Flow
           </h3>
-
-          <i class="fa-solid fa-arrow-right mt-4 block text-[#63d0e8]" aria-hidden="true"></i>
         </article>
 
         <article
@@ -445,7 +441,7 @@
 
 
     <section
-      class="laptop-section mx-auto max-w-[1360px] px-4 pt-0"
+      class="laptop-section mx-auto max-w-[1360px] px-4 pt-0 mb-16 lg:mb-24"
       aria-labelledby="laptop-title"
     >
 
