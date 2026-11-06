@@ -51,7 +51,7 @@
 
   <section class="flex justify-center w-full min-h-screen overflow-hidden navbar-start-hide">
     <iframe
-      src="https://docs.google.com/forms/d/e/asdasdasda/viewform?embedded=true"
+      src="https://docs.google.com/forms/d/e/1FAIpQLSfb_l8Qz6q3tAz1TKlM7cy1TH9fwwuo-mMlJ0WRvnsb9BxSNw/viewform?embedded=true"
       id="form-iframe" frameborder="0"
       marginheight="0" marginwidth="0"
       class="w-[700px] h-screen border-0" allowfullscreen>
@@ -75,15 +75,8 @@
   <script src="/components/footer.js"></script>
 
   <script>
-    const pathSelector = {
-      learner: "Learner%E2%80%99s+Path",
-      contributor: "Contributor%E2%80%99s+Path",
-      allrounder: "All+Rounder+Path",
-    };
-    const iframe = document.getElementById("form-iframe")
-    iframe.src = `https://docs.google.com/forms/d/e/1FAIpQLSfb_l8Qz6q3tAz1TKlM7cy1TH9fwwuo-mMlJ0WRvnsb9BxSNw/viewform?embedded=true&usp=pp_url&entry.448225574=${pathSelector[localStorage.getItem("path-type")]}`
-    // localStorage.removeItem("path-type");
-
+    // Redirect directly to the official Google Form
+    window.location.href = "https://forms.gle/5seCd5trhcBwY6zf9";
   </script>
 </body>
 
