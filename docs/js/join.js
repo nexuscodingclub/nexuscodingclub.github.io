@@ -313,10 +313,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  window.addEventListener('resize', () => {
-    resetAllCards();
-  });
-
   // Only auto-select if explicitly passed via URL query parameter (e.g. ?path=learner)
   // Never auto-scroll on initial load so landing lands directly in the hero section
   const urlParams = new URLSearchParams(window.location.search);
