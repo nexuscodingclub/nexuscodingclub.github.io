@@ -77,11 +77,74 @@ function scrollDivBottomIntoView(selector) {
   tick();
 })();
 
-// NEXUS Paths Description Data
-const descriptions = {
-  learner: "If you're eager to grow a little every day, this is for you. Here, you'll improve your coding, explore new ideas and share what you learn with others through hands-on sessions, peer code reviews, and tech discussions. It's all about being consistent, curious, and passionate — not perfect.",
-  contributor: "For those who love to build, create, and take initiative. You'll help organise flagship events, design content, manage technical workshops, or develop club projects — turning ambitious ideas into reality while mastering teamwork, leadership, and open-source collaboration.",
-  allrounder: "For those who want the best of both worlds: continuous learning and high-impact contributing. You'll level up your tech stack while actively driving community initiatives, mentoring newcomers, and building real-world projects that make a lasting mark."
+// NEXUS Paths Description & Clarity Cards Data
+const pathDetails = {
+  learner: {
+    badge: "NEXUS Learners Circle",
+    title: "What You Get & Experience as a Learner",
+    summary: "If you're eager to grow a little every day, this is for you. Here, you'll improve your coding, explore new ideas, and build practical applications in a supportive student developer network.",
+    cards: [
+      {
+        icon: "fa-solid fa-laptop-code",
+        title: "Technical Sessions",
+        desc: "Structured, beginner-friendly bootcamps in Web Development, Python, C, and Git. Practical, live coding sessions where you build real projects from ground up."
+      },
+      {
+        icon: "fa-solid fa-users",
+        title: "Peer Guidance & Mentorship",
+        desc: "Direct 1-on-1 code reviews, senior student mentors to clear doubts, and a friendly, collaborative peer circle where asking questions is always encouraged."
+      },
+      {
+        icon: "fa-solid fa-lightbulb",
+        title: "Learning Opportunities",
+        desc: "Weekly problem-solving challenges, curated study roadmaps, portfolio project guidance, and recognized club certificates of achievement."
+      }
+    ]
+  },
+  contributor: {
+    badge: "NEXUS Core Contributors",
+    title: "What You Lead & Experience as a Contributor",
+    summary: "For those who love to build, create, and take initiative. You'll organize events, develop club portals, manage media, and direct student tech initiatives while mastering teamwork and leadership.",
+    cards: [
+      {
+        icon: "fa-solid fa-calendar-check",
+        title: "Physical Events & Staging",
+        desc: "Directly manage and execute flagship offline events—organizing college hackathons (like SPARKQUEST), speaker sessions, and tech festivals on campus."
+      },
+      {
+        icon: "fa-solid fa-trophy",
+        title: "Leadership & Opportunities",
+        desc: "High-visibility leadership roles, executive communication with college deans and industry guest speakers, and valuable management credentials."
+      },
+      {
+        icon: "fa-solid fa-palette",
+        title: "Build & Creative Media",
+        desc: "Design official UI/UX brand assets, develop club web portals, produce promotional videos, and run campus-wide marketing campaigns."
+      }
+    ]
+  },
+  allrounder: {
+    badge: "Both Learner & Contributor",
+    title: "What You Experience as an All-Rounder",
+    summary: "For those who want the best of both worlds: continuous technical learning and high-impact contributing. You'll level up your development skills while actively driving community initiatives.",
+    cards: [
+      {
+        icon: "fa-solid fa-rocket",
+        title: "End-to-End Building",
+        desc: "Build full-stack, AI, and smart hardware capstones from scratch to exhibit at annual flagship project showcases like EXPOGEN."
+      },
+      {
+        icon: "fa-solid fa-microphone",
+        title: "Stage Demos & Event Ops",
+        desc: "Pitch technical innovations live before juries of industry experts while simultaneously co-managing club events and competitions."
+      },
+      {
+        icon: "fa-solid fa-award",
+        title: "Mentorship & High Impact",
+        desc: "Master advanced technologies while mentoring first-year learners—gaining the ultimate blend of engineering depth and leadership reputation."
+      }
+    ]
+  }
 };
 
 const actionButtons = {
@@ -157,7 +220,33 @@ document.addEventListener('DOMContentLoaded', () => {
         currentCard.classList.add('expanded');
       }
     } else {
-      if (descriptionContent) descriptionContent.textContent = descriptions[path];
+      const data = pathDetails[path];
+      const panelBadge = document.getElementById('panel-badge');
+      const panelTitle = document.getElementById('panel-title');
+      const featureContainer = document.getElementById('feature-cards-container');
+
+      if (data) {
+        if (panelBadge) panelBadge.textContent = data.badge;
+        if (panelTitle) panelTitle.textContent = data.title;
+        if (descriptionContent) descriptionContent.textContent = data.summary;
+        if (featureContainer) {
+          featureContainer.innerHTML = data.cards.map(card => `
+            <div class="bg-black/70 border border-gray-700/80 hover:border-green-400 hover:shadow-[0_0_20px_rgba(0,255,153,0.15)] rounded-xl p-5 transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-between text-left">
+              <div>
+                <div class="w-10 h-10 rounded-lg bg-accent/15 border border-accent/30 flex items-center justify-center text-accent mb-3">
+                  <i class="${card.icon} text-lg"></i>
+                </div>
+                <h4 class="text-white font-bold text-base mb-1.5">${card.title}</h4>
+                <p class="text-light/80 text-xs sm:text-sm leading-relaxed">${card.desc}</p>
+              </div>
+              <div class="mt-4 pt-2.5 border-t border-white/10 text-accent text-xs font-semibold flex items-center gap-1.5">
+                <i class="fa-solid fa-circle-check text-[11px]"></i> <span>Path Highlight</span>
+              </div>
+            </div>
+          `).join('');
+        }
+      }
+
       if (actionButton) actionButton.innerHTML = actionButtons[path];
       updateAccentLinePosition(index);
 
