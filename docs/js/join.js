@@ -13,69 +13,103 @@ function scrollDivBottomIntoView(selector) {
 }
 
 // Typing animation for the focus/path section
+
 (function () {
   const prefix = "Enrollment 2026: ";
   const highlight = "Choose Your Path.";
+
   const elPrefix = document.getElementById('focus-typer-prefix');
   const elHighlight = document.getElementById('focus-typer-highlight');
+
   if (!elPrefix || !elHighlight) return;
 
+  const mediaQuery = window.matchMedia("(max-width: 639px)");
   let p = 0;
   let h = 0;
   let phase = 'typePrefix';
+  let timer;
+
+  function reset() {
+    clearTimeout(timer);
+    p = 0;
+    h = 0;
+
+    // Mobile: static prefix
+    if (mediaQuery.matches) {
+      elPrefix.textContent = prefix;
+      phase = 'typeHighlight';
+    } else {
+      // Desktop: animated prefix
+      elPrefix.textContent = "";
+      phase = 'typePrefix';
+    }
+
+    elHighlight.textContent = "";
+    tick();
+  }
 
   function tick() {
     switch (phase) {
-      case 'typePrefix': {
+      case 'typePrefix':
         elPrefix.textContent = prefix.slice(0, ++p);
+
         if (p === prefix.length) {
           phase = 'typeHighlight';
-          setTimeout(tick, 120);
+          timer = setTimeout(tick, 120);
         } else {
-          setTimeout(tick, 70);
+          timer = setTimeout(tick, 70);
         }
         break;
-      }
-      case 'typeHighlight': {
+
+      case 'typeHighlight':
         elHighlight.textContent = highlight.slice(0, ++h);
+
         if (h === highlight.length) {
           phase = 'pauseFull';
-          setTimeout(tick, 1500);
+          timer = setTimeout(tick, 1500);
         } else {
-          setTimeout(tick, 70);
+          timer = setTimeout(tick, 70);
         }
         break;
-      }
-      case 'pauseFull': {
+
+      case 'pauseFull':
         phase = 'eraseHighlight';
-        setTimeout(tick, 60);
+        timer = setTimeout(tick, 60);
         break;
-      }
-      case 'eraseHighlight': {
+
+      case 'eraseHighlight':
         elHighlight.textContent = highlight.slice(0, --h);
+
         if (h === 0) {
-          phase = 'erasePrefix';
-          setTimeout(tick, 60);
+          if (mediaQuery.matches) {
+            phase = 'typeHighlight';
+          } else {
+            phase = 'erasePrefix';
+          }
+          timer = setTimeout(tick, 450);
         } else {
-          setTimeout(tick, 35);
+          timer = setTimeout(tick, 35);
         }
         break;
-      }
-      case 'erasePrefix': {
+
+      case 'erasePrefix':
         elPrefix.textContent = prefix.slice(0, --p);
+
         if (p === 0) {
           phase = 'typePrefix';
-          setTimeout(tick, 450);
+          timer = setTimeout(tick, 450);
         } else {
-          setTimeout(tick, 35);
+          timer = setTimeout(tick, 35);
         }
         break;
-      }
     }
   }
 
-  tick();
+  reset();
+
+  mediaQuery.addEventListener('change', reset);
 })();
+
 
 // NEXUS Paths Description & Clarity Cards Data
 const pathDetails = {
