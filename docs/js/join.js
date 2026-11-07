@@ -80,68 +80,77 @@ function scrollDivBottomIntoView(selector) {
 // NEXUS Paths Description & Clarity Cards Data
 const pathDetails = {
   learner: {
-    badge: "NEXUS Learners Circle",
-    title: "What You Get & Experience as a Learner",
-    summary: "If you're eager to grow a little every day, this is for you. Here, you'll improve your coding, explore new ideas, and build practical applications in a supportive student developer network.",
+    badge: "NEXUS LEARNERS CIRCLE",
+    title: "Learn, Explore & Grow with NEXUS",
+    summary: "A space for students who are curious about technology and want to improve their skills. Take part in technical sessions, explore different areas of computing, and connect with fellow students who share similar interests.",
     cards: [
       {
         icon: "fa-solid fa-laptop-code",
         title: "Technical Sessions",
-        desc: "Structured, beginner-friendly bootcamps in Web Development, Python, C, and Git. Practical, live coding sessions where you build real projects from ground up."
+        desc: "Learn about programming, web development, computer science concepts, and other areas of technology through sessions conducted by fellow students and club members.",
+        highlight: "Learn Something New"
       },
       {
         icon: "fa-solid fa-users",
-        title: "Peer Guidance & Mentorship",
-        desc: "Direct 1-on-1 code reviews, senior student mentors to clear doubts, and a friendly, collaborative peer circle where asking questions is always encouraged."
+        title: "Peer Learning & Collaboration",
+        desc: "Connect with other learners, exchange ideas, discuss technical topics, and help each other understand concepts. You can also collaborate with interested peers on projects.",
+        highlight: "Learn Together"
       },
       {
         icon: "fa-solid fa-lightbulb",
-        title: "Learning Opportunities",
-        desc: "Weekly problem-solving challenges, curated study roadmaps, portfolio project guidance, and recognized club certificates of achievement."
+        title: "Explore & Practice",
+        desc: "Explore technologies beyond your regular academics, experiment with what you learn, and develop your technical interests through personal or collaborative practice.",
+        highlight: "Keep Exploring"
       }
     ]
   },
   contributor: {
-    badge: "NEXUS Core Contributors",
-    title: "What You Lead & Experience as a Contributor",
-    summary: "For those who love to build, create, and take initiative. You'll organize events, develop club portals, manage media, and direct student tech initiatives while mastering teamwork and leadership.",
+    badge: "NEXUS CORE CONTRIBUTORS",
+    title: "Contribute, Collaborate & Grow",
+    summary: "For students who want to take an active part in NEXUS . Work with fellow members, contribute to club activities, share responsibilities, and develop skills through real teamwork and experience.",
     cards: [
       {
         icon: "fa-solid fa-calendar-check",
-        title: "Physical Events & Staging",
-        desc: "Directly manage and execute flagship offline events—organizing college hackathons (like SPARKQUEST), speaker sessions, and tech festivals on campus."
+        title: "Events & Activities",
+        desc: "Get involved in planning and organizing technical sessions, workshops, coding events, and other NEXUS activities. Be part of bringing ideas to life.",
+        highlight: "Be Part of the Action"
       },
       {
         icon: "fa-solid fa-trophy",
-        title: "Leadership & Opportunities",
-        desc: "High-visibility leadership roles, executive communication with college deans and industry guest speakers, and valuable management credentials."
+        title: "Teamwork & Leadership",
+        desc: "Work alongside fellow contributors, coordinate tasks, take responsibility, and learn how to work as a team. Develop leadership and communication skills through practical experience.",
+        highlight: "Grow Through Responsibility"
       },
       {
         icon: "fa-solid fa-palette",
-        title: "Build & Creative Media",
-        desc: "Design official UI/UX brand assets, develop club web portals, produce promotional videos, and run campus-wide marketing campaigns."
+        title: "Creative & Technical Contributions",
+        desc: "Contribute to NEXUS through website development, designing, content creation, social media, technical initiatives, and other areas where your skills and interests can be useful.",
+        highlight: "Make Your Contribution"
       }
     ]
   },
   allrounder: {
-    badge: "Both Learner & Contributor",
-    title: "What You Experience as an All-Rounder",
-    summary: "For those who want the best of both worlds: continuous technical learning and high-impact contributing. You'll level up your development skills while actively driving community initiatives.",
+    badge: "BOTH LEARNING & CONTRIBUTION",
+    title: "Learn, Contribute & Grow as an All-Rounder",
+    summary: "Why choose between learning and contributing? Be part of both. Improve your technical understanding through learning opportunities while actively contributing to NEXUS activities, collaborating with others, and taking on responsibilities.",
     cards: [
       {
-        icon: "fa-solid fa-rocket",
-        title: "End-to-End Building",
-        desc: "Build full-stack, AI, and smart hardware capstones from scratch to exhibit at annual flagship project showcases like EXPOGEN."
+        icon: "fa-solid fa-graduation-cap",
+        title: "Continuous Learning",
+        desc: "Participate in technical sessions, explore new technologies, exchange knowledge, and learn alongside other students who share your interest in computing.",
+        highlight: "Never Stop Learning"
       },
       {
-        icon: "fa-solid fa-microphone",
-        title: "Stage Demos & Event Ops",
-        desc: "Pitch technical innovations live before juries of industry experts while simultaneously co-managing club events and competitions."
+        icon: "fa-solid fa-laptop-code",
+        title: "Build Together",
+        desc: "Connect with fellow members, exchange ideas, and collaborate on technical activities or projects based on shared interests and initiative.",
+        highlight: "Create Together"
       },
       {
         icon: "fa-solid fa-award",
-        title: "Mentorship & High Impact",
-        desc: "Master advanced technologies while mentoring first-year learners—gaining the ultimate blend of engineering depth and leadership reputation."
+        title: "Teamwork & Initiative",
+        desc: "Take part in organizing activities, supporting fellow learners, coordinating with contributors, and taking responsibility. Develop communication, teamwork, and leadership skills along the way.",
+        highlight: "Grow by Contributing"
       }
     ]
   }
@@ -191,7 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  function selectPath(path, index) {
+  function selectPath(path, index, shouldScroll = true) {
     localStorage.setItem("path-type", path);
 
     // Sync corresponding radio input
@@ -240,7 +249,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p class="text-light/80 text-xs sm:text-sm leading-relaxed">${card.desc}</p>
               </div>
               <div class="mt-4 pt-2.5 border-t border-white/10 text-accent text-xs font-semibold flex items-center gap-1.5">
-                <i class="fa-solid fa-circle-check text-[11px]"></i> <span>Path Highlight</span>
+                <i class="fa-solid fa-circle-check text-[11px]"></i> <span>${card.highlight || 'Path Highlight'}</span>
               </div>
             </div>
           `).join('');
@@ -255,7 +264,9 @@ document.addEventListener('DOMContentLoaded', () => {
         descriptionPanel.classList.add('opacity-100', 'translate-y-0');
       }
 
-      scrollDivBottomIntoView("#join-panel");
+      if (shouldScroll) {
+        scrollDivBottomIntoView("#join-panel");
+      }
     }
   }
 
@@ -264,7 +275,7 @@ document.addEventListener('DOMContentLoaded', () => {
     card.addEventListener('click', (e) => {
       // Prevent double trigger if user clicks an anchor link inside card
       if (e.target.closest('a')) return;
-      selectPath(path, index);
+      selectPath(path, index, true);
     });
   });
 
@@ -272,12 +283,21 @@ document.addEventListener('DOMContentLoaded', () => {
     resetAllCards();
   });
 
-  // Check if a preselected path exists or query string
+  // Only auto-select if explicitly passed via URL query parameter (e.g. ?path=learner)
+  // Never auto-scroll on initial load so landing lands directly in the hero section
   const urlParams = new URLSearchParams(window.location.search);
-  const pathParam = urlParams.get('path') || localStorage.getItem("path-type");
+  const pathParam = urlParams.get('path');
   if (pathParam && ['learner', 'contributor', 'allrounder'].includes(pathParam)) {
     const pathIndices = { learner: 0, contributor: 1, allrounder: 2 };
-    selectPath(pathParam, pathIndices[pathParam]);
+    selectPath(pathParam, pathIndices[pathParam], false);
+  }
+
+  // Ensure fresh navigation lands squarely at the top Hero section
+  if (!window.location.hash) {
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
   }
 });
 
