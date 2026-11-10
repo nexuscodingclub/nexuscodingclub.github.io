@@ -329,6 +329,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
   }
+
+   // Show Learner details by default on desktop
+if (!isMobile()) {
+  selectPath('learner', 0, false);
+}
 });
 
 // Clone and append announcement bar when navbar finishes loading
