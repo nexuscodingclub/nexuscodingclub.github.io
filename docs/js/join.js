@@ -248,6 +248,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const radio = document.getElementById(radioId);
       if (radio) radio.checked = true;
     }
+     // Update selected card styling
+cards.forEach((card, cardIndex) => {
+  card.classList.toggle('selected', cardIndex === index);
+});
 
     if (isMobile()) {
       cards.forEach(otherCard => {
