@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Enrollment 2026 | Nexus Coding Club - SCET</title>
+  <title>NEXUS 2026 | Registration Closed - Nexus Coding Club</title>
+  <meta name="description" content="NEXUS Enrollment 2026 registration is closed. Explore the Learner, Contributor, and All-Rounder paths and find updates on what happens next.">
   <link rel="icon" href="/asset/NEXUS Icon.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -27,7 +28,6 @@
           },
           animation: {
             'fade-in-up': 'fadeInUp 0.6s ease forwards',
-            scroll: 'scroll 15s linear infinite',
             'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
           },
           keyframes: {
@@ -35,21 +35,42 @@
               '0%': { opacity: '0', transform: 'translateY(20px)' },
               '100%': { opacity: '1', transform: 'translateY(0)' },
             },
-            scroll: {
-              '0%': { transform: 'translateX(0)' },
-              '100%': { transform: 'translateX(-50%)' },
-            },
           },
         }
       }
     }
+
   </script>
    <style>
+  #announcement-bar,
+  #announcement-bar-clone {
+    background: linear-gradient(90deg, #450a0a, #0a0a0a 50%, #450a0a);
+    border-bottom: 1px solid rgb(239 68 68 / 30%);
+    box-shadow: 0 4px 12px rgb(127 29 29 / 18%);
+  }
+  .announcement-track {
+    display: flex;
+    width: max-content;
+    will-change: transform;
+    animation: announcement-scroll var(--announcement-duration, 30s) linear infinite;
+  }
+  .announcement-group {
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    white-space: nowrap;
+  }
+  @keyframes announcement-scroll {
+    to { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .announcement-track { animation: none; transform: none; }
+  }
   /* Selected path card CTA */
   .selected .path-details-cta {
-    background-color: #139a43;
-    border-color: #139a43;
-    color: #000000;
+    background-color: rgb(69 10 10 / 55%);
+    border-color: rgb(239 68 68 / 30%);
+    color: #fca5a5;
   }
 </style>
 </head>
@@ -61,36 +82,19 @@
 
   <div class="pt-20"></div>
 
-  <!-- Announcement Bar: Enrollment 2026 LIVE -->
-  <div id="announcement-bar"
-      class="sticky top-0 z-[40] bg-gradient-to-r from-emerald-950 via-neutral-900 to-emerald-950 border-b border-accent/30 overflow-hidden text-white shadow-md shadow-accent/10">
-    <div class="flex gap-10 animate-scroll whitespace-nowrap py-2 text-xs sm:text-sm font-medium tracking-wide">
+  <!-- Announcement Bar: Registration Closed -->
+<div id="announcement-bar"
+    class="sticky top-0 z-[40] overflow-hidden text-white">
+  <div class="announcement-track" aria-label="NEXUS Enrollment 2026 registration closed. Thank you to everyone who registered. Please wait for further updates through official NEXUS channels.">
+    <div class="announcement-group gap-10 py-3 px-5 text-xs sm:text-sm font-medium tracking-wide">
       <span class="inline-flex items-center gap-2">
-        <span class="w-2.5 h-2.5 rounded-full bg-accent animate-ping inline-block"></span>
-        <i class="fa-solid fa-sparkles text-accent"></i> <strong>NEXUS ENROLLMENT 2026 IS NOW OPEN!</strong> Choose your path and apply today.
-      </span>
-      <span class="inline-flex items-center gap-2" aria-hidden="true">
-        <span class="w-2.5 h-2.5 rounded-full bg-accent animate-ping inline-block"></span>
-        <i class="fa-solid fa-sparkles text-accent"></i> <strong>NEXUS ENROLLMENT 2026 IS NOW OPEN!</strong> Choose your path and apply today.
-      </span>
-      <span class="inline-flex items-center gap-2" aria-hidden="true">
-        <span class="w-2.5 h-2.5 rounded-full bg-accent animate-ping inline-block"></span>
-        <i class="fa-solid fa-sparkles text-accent"></i> <strong>NEXUS ENROLLMENT 2026 IS NOW OPEN!</strong> Choose your path and apply today.
-      </span>
-      <span class="inline-flex items-center gap-2" aria-hidden="true">
-        <span class="w-2.5 h-2.5 rounded-full bg-accent animate-ping inline-block"></span>
-        <i class="fa-solid fa-sparkles text-accent"></i> <strong>NEXUS ENROLLMENT 2026 IS NOW OPEN!</strong> Choose your path and apply today.
-      </span>
-      <span class="inline-flex items-center gap-2" aria-hidden="true">
-        <span class="w-2.5 h-2.5 rounded-full bg-accent animate-ping inline-block"></span>
-        <i class="fa-solid fa-sparkles text-accent"></i> <strong>NEXUS ENROLLMENT 2026 IS NOW OPEN!</strong> Choose your path and apply today.
-      </span>
-      <span class="inline-flex items-center gap-2" aria-hidden="true">
-        <span class="w-2.5 h-2.5 rounded-full bg-accent animate-ping inline-block"></span>
-        <i class="fa-solid fa-sparkles text-accent"></i> <strong>NEXUS ENROLLMENT 2026 IS NOW OPEN!</strong> Choose your path and apply today.
+        <i class="fa-solid fa-lock text-red-500" aria-hidden="true"></i>
+        <strong class="text-red-400">NEXUS ENROLLMENT 2026 — REGISTRATION CLOSED</strong>
+        <span>Thank you to everyone who registered. Please wait for further updates through official NEXUS channels.</span>
       </span>
     </div>
   </div>
+</div>
 
   <!-- Hero Section -->
   <section class="relative min-h-[90vh] flex items-center justify-center py-12 sm:py-16">
@@ -109,12 +113,16 @@
       <h3 class="text-lg sm:text-xl md:text-2xl lg:text-3xl text-light/90 font-medium max-w-3xl mx-auto mb-10 leading-relaxed animate-fade-in-up" style="animation-delay: 0.2s;">
         Let's connect, collaborate and code, Join the Journey!
       </h3>
+      <div class="inline-flex items-center gap-2 rounded-full border border-red-500/30 bg-red-950/40 px-4 py-2 text-sm font-semibold text-red-300 mb-8 animate-fade-in-up" role="status" style="animation-delay: 0.3s;">
+        <i class="fa-solid fa-lock text-red-400" aria-hidden="true"></i>
+        NEXUS Enrollment 2026 registration is closed
+      </div>
 
       <!-- Action Buttons -->
       <div class="navbar-start-hide flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center mb-10 animate-fade-in-up" style="animation-delay: 0.4s;">
         <button onclick="document.getElementById('focus-section').scrollIntoView({behavior: 'smooth'})"
           class="w-full sm:w-auto px-8 py-4 bg-accent text-dark font-bold text-base rounded-full hover:bg-emerald-400 hover:text-dark transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl hover:shadow-accent/40 flex items-center justify-center gap-3 cursor-pointer">
-          <span>Apply for 2026</span>
+          <span>Explore NEXUS Paths</span>
           <i class="fa-solid fa-arrow-down"></i>
         </button>
         <button onclick="document.getElementById('journey-section').scrollIntoView({behavior: 'smooth'})"
@@ -143,65 +151,65 @@
     </div>
   </section>
 
-  <!-- How You'll Join the Journey Section -->
+  <!-- What Happens Next Section -->
   <section id="journey-section" class="relative w-full bg-black py-12 md:py-16">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-10">
-        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-primary mb-3">How You'll Join the Journey</h2>
-        <p class="text-light/80 text-base md:text-lg max-w-2xl mx-auto">Here's the flow that takes you into the NEXUS community.</p>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-primary mb-3">What Happens Next?</h2>
+        <p class="text-light/80 text-base md:text-lg max-w-2xl mx-auto">Registration is closed. Here are the next stages for submitted applications.</p>
       </div>
 
       <!-- Journey Cards Grid -->
       <div class="relative grid grid-cols-1 md:grid-cols-4 gap-6 py-6 md:py-8 text-center">
         <!-- Timeline Line -->
-        <div class="hidden md:block absolute top-1/2 left-[12%] right-[12%] h-0.5 bg-gradient-to-r from-accent via-accent/60 to-accent transform -translate-y-1/2 z-0"></div>
+        <div class="hidden md:block absolute top-1/2 left-[12%] right-[12%] h-0.5 bg-gradient-to-r from-red-500/70 via-accent/50 to-accent transform -translate-y-1/2 z-0"></div>
 
-        <!-- Card 1: Choose Your Path -->
-        <div onclick="document.getElementById('focus-section').scrollIntoView({behavior: 'smooth'})" class="relative bg-black/80 border border-gray-700 hover:border-green-400 hover:shadow-[0_0_20px_#00ff99] rounded-xl p-6 cursor-pointer hover:scale-105 transition-all duration-300 transform z-10">
-          <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 w-8 h-8 bg-white text-accent font-bold rounded-full flex items-center justify-center text-sm shadow">1</div>
+        <!-- Card 1: Registration Closed -->
+        <div class="relative bg-black/80 border border-red-500/30 rounded-xl p-6 transition-all duration-300 transform z-10">
+          <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 w-8 h-8 bg-red-950 text-red-300 font-bold rounded-full flex items-center justify-center text-sm shadow">01</div>
           <div class="w-14 h-14 mx-auto mb-4 flex items-center justify-center">
-            <svg class="w-10 h-10 text-accent" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+            <svg class="w-10 h-10 text-red-400" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2a5 5 0 0 0-5 5v3H5v12h14V10h-2V7a5 5 0 0 0-5-5zm-3 5a3 3 0 0 1 6 0v3H9V7zm4 11.73V20h-2v-1.27a2 2 0 1 1 2 0z"/>
             </svg>
           </div>
-          <h3 class="text-xl font-semibold text-white mb-2">Choose Your Path</h3>
-          <p class="text-light/90 text-sm leading-relaxed">Pick where you fit best: Learner, Contributor, or All Rounder. Once you choose, submit your application.</p>
+          <h3 class="text-xl font-semibold text-red-300 mb-2">Registration Closed</h3>
+          <p class="text-light/90 text-sm leading-relaxed">The registration period for NEXUS Enrollment 2026 has ended.</p>
         </div>
 
-        <!-- Card 2: Interaction Session -->
+        <!-- Card 2: Application Review -->
         <div class="relative bg-black/80 border border-gray-700 hover:border-green-400 hover:shadow-[0_0_20px_#00ff99] rounded-xl p-6 hover:scale-105 transition-all duration-300 transform z-10">
-          <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 w-8 h-8 bg-white text-accent font-bold rounded-full flex items-center justify-center text-sm shadow">2</div>
+          <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 w-8 h-8 bg-white text-accent font-bold rounded-full flex items-center justify-center text-xs shadow">02</div>
           <div class="w-14 h-14 mx-auto mb-4 flex items-center justify-center">
             <svg class="w-10 h-10 text-accent" fill="currentColor" viewBox="0 0 24 24">
               <path d="M20 2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h4l4 4 4-4h4c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
             </svg>
           </div>
-          <h3 class="text-xl font-semibold text-white mb-2">Interaction Session</h3>
-          <p class="text-light/90 text-sm leading-relaxed">If your application is approved, you'll be invited for an interaction session to understand your goals and interests.</p>
+          <h3 class="text-xl font-semibold text-white mb-2">Application Review</h3>
+          <p class="text-light/90 text-sm leading-relaxed">The NEXUS team is reviewing the submitted applications.</p>
         </div>
 
-        <!-- Card 3: Get Welcomed -->
+        <!-- Card 3: Interaction Sessions -->
         <div class="relative bg-black/80 border border-gray-700 hover:border-green-400 hover:shadow-[0_0_20px_#00ff99] rounded-xl p-6 hover:scale-105 transition-all duration-300 transform z-10">
-          <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 w-8 h-8 bg-white text-accent font-bold rounded-full flex items-center justify-center text-sm shadow">3</div>
+          <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 w-8 h-8 bg-white text-accent font-bold rounded-full flex items-center justify-center text-xs shadow">03</div>
           <div class="w-14 h-14 mx-auto mb-4 flex items-center justify-center">
             <svg class="w-10 h-10 text-accent" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11H7v-2h10v2zm0-4H7V7h10v2z"/>
             </svg>
           </div>
-          <h3 class="text-xl font-semibold text-white mb-2">Get Welcomed</h3>
-          <p class="text-light/90 text-sm leading-relaxed">You'll officially become part of NEXUS, added to our community groups, and invited to onboarding sessions.</p>
+          <h3 class="text-xl font-semibold text-white mb-2">Interaction Sessions</h3>
+          <p class="text-light/90 text-sm leading-relaxed">Shortlisted applicants will receive further details about the interaction process.</p>
         </div>
 
-        <!-- Card 4: Begin Your Journey -->
+        <!-- Card 4: Selection & Onboarding -->
         <div class="relative bg-black/80 border border-gray-700 hover:border-green-400 hover:shadow-[0_0_20px_#00ff99] rounded-xl p-6 hover:scale-105 transition-all duration-300 transform z-10">
-          <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 w-8 h-8 bg-white text-accent font-bold rounded-full flex items-center justify-center text-sm shadow">4</div>
+          <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 w-8 h-8 bg-white text-accent font-bold rounded-full flex items-center justify-center text-xs shadow">04</div>
           <div class="w-14 h-14 mx-auto mb-4 flex items-center justify-center">
             <svg class="w-10 h-10 text-accent" fill="currentColor" viewBox="0 0 24 24">
               <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/>
             </svg>
           </div>
-          <h3 class="text-xl font-semibold text-white mb-2">Begin Your Journey</h3>
-          <p class="text-light/90 text-sm leading-relaxed">Start exploring projects, group discussions, and community events. Learn, collaborate, and grow with NEXUS.</p>
+          <h3 class="text-xl font-semibold text-white mb-2">Selection &amp; Onboarding</h3>
+          <p class="text-light/90 text-sm leading-relaxed">Selected applicants will be informed about the next steps to begin their NEXUS journey.</p>
         </div>
       </div>
     </div>
@@ -220,7 +228,7 @@
         <span class="align-middle inline-block w-1 h-7 md:h-8 bg-accent ml-1 animate-pulse"></span>
       </h2>
       <p class="text-light/80 text-sm sm:text-base mt-2 max-w-xl mx-auto">
-        Click on any path below to review details, and then proceed directly to the registration form.
+        Explore the three NEXUS paths below. These descriptions are informational; registration for 2026 is closed.
       </p>
     </div>
 
@@ -239,9 +247,10 @@
             </div>
             <h3 class="text-xl sm:text-2xl font-bold text-white hover:text-green-400 transition-colors">Learner's Path</h3>
             <div class="text-accent font-medium mt-1">NEXUS Learners Circle</div>
-            <div class="path-details-cta hidden md:flex items-center justify-center gap-2 mt-5 px-5 py-3 rounded-full border border-accent bg-transparent text-accent font-bold text-sm uppercase tracking-wide transition-all duration-300">
-  VIEW DETAILS
-  <i class="fa-solid fa-arrow-right"></i>
+            <div class="md:hidden mt-3 inline-flex items-center gap-2 rounded-full border border-red-500/30 bg-red-950/30 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wide text-red-300" role="status"><i class="fa-solid fa-lock" aria-hidden="true"></i> Registration Closed</div>
+            <div class="path-details-cta hidden md:flex items-center justify-center gap-2 mt-5 px-5 py-3 rounded-full border border-red-500/30 bg-red-950/30 text-red-300 font-bold text-sm uppercase tracking-wide transition-all duration-300">
+  REGISTRATION CLOSED
+  <i class="fa-solid fa-lock" aria-hidden="true"></i>
 </div>
             
             <!-- Mobile Description & Button -->
@@ -282,12 +291,6 @@
                   </div>
                 </div>
               </div>
-              <div class="mt-4 flex justify-center">
-                <a href="https://forms.gle/5seCd5trhcBwY6zf9" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-accent hover:bg-emerald-400 text-dark font-bold px-6 py-2.5 rounded-lg transition-all duration-300 transform hover:scale-105 text-sm shadow-md shadow-accent/20">
-                  <span>Proceed to Registration (Learner)</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </a>
-              </div>
             </div>
           </label>
         </div>
@@ -303,9 +306,10 @@
             </div>
             <h3 class="text-xl sm:text-2xl font-bold text-white hover:text-green-400 transition-colors">Contributor's Path</h3>
             <div class="text-accent font-medium mt-1">NEXUS Core Contributors</div>
-            <div class="path-details-cta hidden md:flex items-center justify-center gap-2 mt-5 px-5 py-3 rounded-full border border-accent bg-transparent text-accent font-bold text-sm uppercase tracking-wide transition-all duration-300">
-  VIEW DETAILS
-  <i class="fa-solid fa-arrow-right"></i>
+            <div class="md:hidden mt-3 inline-flex items-center gap-2 rounded-full border border-red-500/30 bg-red-950/30 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wide text-red-300" role="status"><i class="fa-solid fa-lock" aria-hidden="true"></i> Registration Closed</div>
+            <div class="path-details-cta hidden md:flex items-center justify-center gap-2 mt-5 px-5 py-3 rounded-full border border-red-500/30 bg-red-950/30 text-red-300 font-bold text-sm uppercase tracking-wide transition-all duration-300">
+  REGISTRATION CLOSED
+  <i class="fa-solid fa-lock" aria-hidden="true"></i>
 </div>
             
             <!-- Mobile Description & Button -->
@@ -346,12 +350,6 @@
                   </div>
                 </div>
               </div>
-              <div class="mt-4 flex justify-center">
-                <a href="https://forms.gle/5seCd5trhcBwY6zf9" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-accent hover:bg-emerald-400 text-dark font-bold px-6 py-2.5 rounded-lg transition-all duration-300 transform hover:scale-105 text-sm shadow-md shadow-accent/20">
-                  <span>Proceed to Registration (Contributor)</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </a>
-              </div>
             </div>
           </label>
         </div>
@@ -367,9 +365,10 @@
             </div>
             <h3 class="text-xl sm:text-2xl font-bold text-white hover:text-green-400 transition-colors">All-Rounder Path</h3>
             <div class="text-accent font-medium mt-1">Both Learner & Contributor</div>
-            <div class="path-details-cta hidden md:flex items-center justify-center gap-2 mt-5 px-5 py-3 rounded-full border border-accent bg-transparent text-accent font-bold text-sm uppercase tracking-wide transition-all duration-300">
-  VIEW DETAILS
-  <i class="fa-solid fa-arrow-right"></i>
+            <div class="md:hidden mt-3 inline-flex items-center gap-2 rounded-full border border-red-500/30 bg-red-950/30 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wide text-red-300" role="status"><i class="fa-solid fa-lock" aria-hidden="true"></i> Registration Closed</div>
+            <div class="path-details-cta hidden md:flex items-center justify-center gap-2 mt-5 px-5 py-3 rounded-full border border-red-500/30 bg-red-950/30 text-red-300 font-bold text-sm uppercase tracking-wide transition-all duration-300">
+  REGISTRATION CLOSED
+  <i class="fa-solid fa-lock" aria-hidden="true"></i>
 </div>
             
             <!-- Mobile Description & Button -->
@@ -410,12 +409,6 @@
                   </div>
                 </div>
               </div>
-              <div class="mt-4 flex justify-center">
-                <a href="https://forms.gle/5seCd5trhcBwY6zf9" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-accent hover:bg-emerald-400 text-dark font-bold px-6 py-2.5 rounded-lg transition-all duration-300 transform hover:scale-105 text-sm shadow-md shadow-accent/20">
-                  <span>Proceed to Registration (All-Rounder)</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </a>
-              </div>
             </div>
           </label>
         </div>
@@ -438,13 +431,20 @@
       </div>
     </div>
 
-    <!-- Direct Quick Link to Form -->
-    <div class="relative z-10 mt-6 text-center text-xs sm:text-sm text-lighter">
-      <span>Already know what you're looking for? </span>
-      <a href="https://forms.gle/5seCd5trhcBwY6zf9" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline font-semibold ml-1 inline-flex items-center gap-1">
-        <span>Go straight to the Enrollment Google Form</span>
-        <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
-      </a>
+  </section>
+
+  <!-- Already Registered Notice -->
+  <section class="relative w-full bg-black py-10 md:py-14" aria-labelledby="registered-heading">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-4xl rounded-2xl border border-red-500/25 bg-card p-6 sm:p-8 shadow-xl shadow-red-950/10">
+        <div class="flex items-start gap-4">
+          <span class="mt-1 inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-red-500/30 bg-red-950/40 text-red-300" aria-hidden="true"><i class="fa-solid fa-circle-info"></i></span>
+          <div>
+            <h2 id="registered-heading" class="text-2xl sm:text-3xl font-bold text-white mb-3">Already Registered?</h2>
+            <p class="text-light/85 text-sm sm:text-base leading-relaxed">Thank you for showing interest in NEXUS Coding Club. If you have already submitted your application, please wait for further communication from the NEXUS team. Keep checking the contact details you provided and our official announcements for updates.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 

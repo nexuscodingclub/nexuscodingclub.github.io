@@ -190,11 +190,7 @@ const pathDetails = {
   }
 };
 
-const actionButtons = {
-  learner: '<a href="https://forms.gle/5seCd5trhcBwY6zf9" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 bg-accent hover:bg-emerald-400 text-dark font-bold px-8 py-3.5 rounded-xl transition-all duration-300 transform hover:scale-105 text-base shadow-lg shadow-accent/30"><span>Proceed to Registration (Learner)</span><i class="fa-solid fa-arrow-right"></i></a>',
-  contributor: '<a href="https://forms.gle/5seCd5trhcBwY6zf9" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 bg-accent hover:bg-emerald-400 text-dark font-bold px-8 py-3.5 rounded-xl transition-all duration-300 transform hover:scale-105 text-base shadow-lg shadow-accent/30"><span>Proceed to Registration (Contributor)</span><i class="fa-solid fa-arrow-right"></i></a>',
-  allrounder: '<a href="https://forms.gle/5seCd5trhcBwY6zf9" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 bg-accent hover:bg-emerald-400 text-dark font-bold px-8 py-3.5 rounded-xl transition-all duration-300 transform hover:scale-105 text-base shadow-lg shadow-accent/30"><span>Proceed to Registration (All-Rounder)</span><i class="fa-solid fa-arrow-right"></i></a>'
-};
+const closedRegistrationStatus = '<span class="inline-flex items-center gap-2 rounded-xl border border-red-500/30 bg-red-950/30 px-5 py-3 text-sm font-bold uppercase tracking-wide text-red-300" role="status"><i class="fa-solid fa-lock" aria-hidden="true"></i><span>Registration Closed</span></span>';
 
 document.addEventListener('DOMContentLoaded', () => {
   const cards = document.querySelectorAll('.nexus-card');
@@ -294,7 +290,7 @@ cards.forEach((card, cardIndex) => {
         }
       }
 
-      if (actionButton) actionButton.innerHTML = actionButtons[path];
+      if (actionButton) actionButton.innerHTML = closedRegistrationStatus;
       updateAccentLinePosition(index);
 
       if (descriptionPanel) {
@@ -340,15 +336,48 @@ if (!isMobile()) {
 }
 });
 
+// Keep the two marquee halves identical and wide enough to cover the viewport.
+function setupAnnouncementMarquee(bar) {
+  const track = bar.querySelector('.announcement-track');
+  const group = track && track.querySelector('.announcement-group');
+  if (!track || !group || group.dataset.ready === 'true') return;
+
+  const originalContent = group.innerHTML;
+  const rebuild = () => {
+    group.innerHTML = originalContent;
+    while (group.getBoundingClientRect().width < bar.clientWidth + 1) {
+      group.insertAdjacentHTML('beforeend', originalContent);
+    }
+
+    track.querySelectorAll('.announcement-group[aria-hidden="true"]').forEach((item) => item.remove());
+    const duplicate = group.cloneNode(true);
+    duplicate.setAttribute('aria-hidden', 'true');
+    track.appendChild(duplicate);
+    track.style.setProperty('--announcement-duration', `${Math.max(18, group.getBoundingClientRect().width / 80)}s`);
+  };
+
+  group.dataset.ready = 'true';
+  rebuild();
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(rebuild, 120);
+  }, { passive: true });
+}
+
 // Clone and append announcement bar when navbar finishes loading
 window.addEventListener("navbar:loaded", (e) => {
   const announcement = document.getElementById("announcement-bar");
   if (!announcement || !e.detail || !e.detail.navbar) return;
-  
+
+  setupAnnouncementMarquee(announcement);
   if (e.detail.navbar.querySelector('#announcement-bar-clone')) return;
 
   const clone = announcement.cloneNode(true);
   clone.id = 'announcement-bar-clone';
   clone.hidden = false;
   e.detail.navbar.appendChild(clone);
+  const clonedGroup = clone.querySelector('.announcement-group');
+  if (clonedGroup) delete clonedGroup.dataset.ready;
+  setupAnnouncementMarquee(clone);
 });
